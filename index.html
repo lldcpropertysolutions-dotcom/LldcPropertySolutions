@@ -7,73 +7,299 @@
 <title>LLDC Property Solutions | Your Property, Our Priority</title>
 
 
+
+
+
+
+
+
 <style>
 :root{
-  --bg:#07111f;--bg2:#0c1b2e;--glass:rgba(255,255,255,.075);
-  --glass2:rgba(255,255,255,.11);--line:rgba(255,255,255,.14);
-  --text:#edf4fb;--muted:#a9bacb;--accent:#b8d4df;--accent2:#d7b77b;
-  --shadow:0 25px 70px rgba(0,0,0,.28);--radius:24px;
+  --warm:#fffaf3;--warm2:#f7efe4;--pink:#f3c8cf;--pink2:#ffe2e5;
+  --bamboo:#8a6648;--bamboo-dark:#5e4432;--lime:#b9d86c;--orange:#ee9852;
+  --ink:#302822;--muted:#756a61;--glass:rgba(255,250,243,.68);
+  --line:rgba(94,68,50,.15);--shadow:0 24px 65px rgba(94,68,50,.13);
+  --radius:24px;
 }
 *{box-sizing:border-box;scroll-behavior:smooth}
-html{background:var(--bg)}
-body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--text);
-background:
-radial-gradient(circle at 10% 10%,rgba(104,156,187,.16),transparent 28%),
-radial-gradient(circle at 90% 20%,rgba(210,174,108,.11),transparent 24%),
-linear-gradient(135deg,#07111f 0%,#0a1728 48%,#07111f 100%);
-line-height:1.65;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:55px 55px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
-a{text-decoration:none;color:inherit}.container{width:min(1160px,92%);margin:auto}
-header{position:sticky;top:0;z-index:100;background:rgba(5,15,27,.66);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}.logo{font-size:22px;font-weight:850;letter-spacing:.3px}.logo span{color:var(--accent2)}
-nav{display:flex;gap:22px;align-items:center}nav a{color:#dce8f1;font-size:13px;font-weight:750;transition:.25s}nav a:hover{color:var(--accent2)}
-.menu{display:none;background:var(--glass);border:1px solid var(--line);color:#fff;border-radius:12px;padding:8px 11px;font-size:20px}
-.hero{min-height:82vh;display:flex;align-items:center;padding:95px 0 75px;position:relative}
-.hero:after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-220px;top:70px;background:rgba(145,190,210,.08);filter:blur(4px);animation:orb 12s ease-in-out infinite}
+html{background:var(--warm)}
+body{
+  margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  color:var(--ink);line-height:1.65;overflow-x:hidden;
+  background:
+    radial-gradient(circle at 8% 8%,rgba(243,200,207,.48),transparent 25%),
+    radial-gradient(circle at 92% 16%,rgba(185,216,108,.25),transparent 23%),
+    radial-gradient(circle at 72% 80%,rgba(238,152,82,.16),transparent 22%),
+    linear-gradient(135deg,#fffdf8 0%,#fff7f0 48%,#fbf3e8 100%);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.42;
+  background-image:linear-gradient(rgba(138,102,72,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(138,102,72,.045) 1px,transparent 1px);
+  background-size:55px 55px;mask-image:linear-gradient(to bottom,black,transparent 82%);
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1160px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,250,243,.68);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line)
+}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.logo{font-size:22px;font-weight:900;letter-spacing:.2px;color:var(--bamboo-dark)}
+.logo span{color:var(--orange)}
+nav{display:flex;gap:20px;align-items:center}
+nav a{color:var(--bamboo-dark);font-size:13px;font-weight:800;transition:.25s}
+nav a:hover{color:#cf7133;transform:translateY(-1px)}
+.menu{display:none;background:rgba(255,255,255,.55);border:1px solid var(--line);color:var(--bamboo-dark);border-radius:12px;padding:8px 11px;font-size:20px}
+
+.hero{min-height:84vh;display:flex;align-items:center;padding:95px 0 75px;position:relative}
+.hero:before,.hero:after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;
+  filter:blur(1px);animation:floatSoft 10s ease-in-out infinite
+}
+.hero:before{width:360px;height:360px;left:-150px;top:70px;background:rgba(243,200,207,.38)}
+.hero:after{width:300px;height:300px;right:-110px;bottom:30px;background:rgba(185,216,108,.25);animation-delay:-3s}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center;position:relative;z-index:1}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.045);backdrop-filter:blur(10px);border-radius:40px;padding:7px 13px;color:#cbdce6;font-size:11px;font-weight:800;letter-spacing:1.6px}
-h1{font-size:clamp(43px,6.3vw,76px);line-height:1.02;letter-spacing:-2px;margin:23px 0 20px}h1 span{color:var(--accent2)}
-.hero p{max-width:690px;color:var(--muted);font-size:18px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.btn{display:inline-block;padding:12px 19px;border-radius:12px;font-weight:800;border:1px solid var(--line);transition:.25s;backdrop-filter:blur(10px)}
-.btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.2)}
-.btn-gold{background:linear-gradient(135deg,#d8bd87,#a88955);color:#101923;border:0}.btn-outline{background:rgba(255,255,255,.05);color:#fff}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);
+  background:rgba(255,255,255,.48);backdrop-filter:blur(12px);border-radius:40px;
+  padding:7px 13px;color:var(--bamboo);font-size:11px;font-weight:900;letter-spacing:1.5px
+}
+h1{font-size:clamp(43px,6.3vw,76px);line-height:1.02;letter-spacing:-2px;margin:23px 0 20px;color:var(--bamboo-dark)}
+h1 span{color:var(--orange)}
+.hero p{max-width:690px;color:var(--muted);font-size:18px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  display:inline-block;padding:12px 19px;border-radius:12px;font-weight:850;
+  border:1px solid var(--line);transition:.3s;backdrop-filter:blur(10px)
+}
+.btn:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(94,68,50,.16)}
+.btn-gold{background:linear-gradient(135deg,var(--orange),#d97b3d);color:#fff;border:0}
+.btn-outline{background:rgba(255,255,255,.45);color:var(--bamboo-dark)}
+
 .quick-card,.card,.info-panel,.property-card,.contact-box,.owner-card,.office-card,.req-panel{
-background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.045));
-border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-.quick-card{border-radius:var(--radius);padding:32px}.quick-card h3{margin-top:0;font-size:24px}.quick-list{list-style:none;padding:0;margin:0}.quick-list li{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.09);color:#c7d5e0}.quick-list li:last-child{border:0}
-section{padding:95px 0;position:relative}.section-head,.section-heading{text-align:center;max-width:800px;margin:0 auto 42px}.section-head h2,.section-heading h2{font-size:40px;line-height:1.15;margin:10px 0 12px;letter-spacing:-.8px}.section-head p,.section-heading p{color:var(--muted);font-size:16px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{border-radius:20px;padding:27px}.card-icon{font-size:29px}.card h3{margin:11px 0 7px}.card p{color:var(--muted)}
-.about{background:linear-gradient(180deg,transparent,rgba(255,255,255,.025),transparent)}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.about-box{border-radius:24px;padding:36px;background:linear-gradient(135deg,rgba(183,211,222,.12),rgba(255,255,255,.04));border:1px solid var(--line);box-shadow:var(--shadow)}.about-box h3{font-size:27px;margin-top:0}
-.property-section,.requirements-section,.contact{background:rgba(255,255,255,.018);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
-.tabs,.req-tabs{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:25px 0 30px}.tab,.req-tab{cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.055);color:#d9e5ee;padding:11px 19px;border-radius:30px;font-weight:800;transition:.25s;backdrop-filter:blur(12px)}.tab:hover,.tab.active,.req-tab:hover,.req-tab.active{background:rgba(204,220,229,.15);border-color:rgba(214,234,241,.3);color:#fff;box-shadow:0 8px 28px rgba(0,0,0,.16);transform:translateY(-2px)}
-.panel,.req-panel{display:none}.panel.active,.req-panel.active{display:block;animation:panelIn .45s ease}
-.property-card{border-radius:25px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}.property-img{width:100%;height:100%;min-height:420px;object-fit:cover}.property-info{padding:38px}.badge{display:inline-block;background:rgba(215,183,123,.13);border:1px solid rgba(215,183,123,.27);color:#e5ca98;padding:6px 10px;border-radius:20px;font-size:10px;font-weight:900;letter-spacing:1.2px}.property-info h3{font-size:31px;margin:13px 0 5px}.location{color:#aebdca;font-weight:700}.specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}.spec{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:11px;font-size:13px;color:#aebdca}.spec strong{display:block;color:#eef4f8}.price{font-size:28px;color:var(--accent2);font-weight:900;margin:15px 0}
-.info-panel{border-radius:22px;padding:36px}.info-panel h3{font-size:28px;margin-top:0}.info-panel p,.info-panel li{color:var(--muted)}
-.commercial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0}.commercial-grid div{padding:17px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.045);text-align:center;font-weight:750;color:#d6e1e9}
-.why{background:linear-gradient(135deg,rgba(190,214,224,.07),rgba(255,255,255,.015))}.why .card{background:rgba(255,255,255,.055)}
-.requirements-section:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(124,170,193,.08);filter:blur(50px);left:-220px;top:20%;animation:orb 14s ease-in-out infinite}
-.req-panel{border-radius:23px;padding:35px;max-width:920px;margin:auto}.req-panel h3{margin:0 0 7px;font-size:27px}.req-panel>p{color:var(--muted)}.req-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.req-form input,.req-form select,.req-form textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.055);color:#edf4fb;font:inherit;outline:none}.req-form input::placeholder,.req-form textarea::placeholder{color:#8ea1b2}.req-form select{color:#dce7ef}.req-form select option{background:#102030;color:#fff}.req-form textarea{grid-column:1/-1;min-height:110px;resize:vertical}.submit-btn{grid-column:1/-1;border:0;border-radius:11px;padding:14px;background:linear-gradient(135deg,#d8bd87,#a88955);color:#111a22;font-weight:900;cursor:pointer;transition:.25s}.submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(0,0,0,.2)}.free-note{font-size:12px!important;color:#899aaa!important}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.contact-box,.owner-card,.office-card{border-radius:21px;padding:30px}.contact-box h3,.office-card h3,.owner-card h3{margin-top:0}.contact-link{display:block;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.09);font-weight:700;color:#dce7ef}
-.owner-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}.owner-card{display:flex;gap:20px}.owner-icon{width:60px;height:60px;min-width:60px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid var(--line)}.owner-role{color:var(--accent2);font-weight:750}.office-card p,.owner-card p{color:var(--muted)}.office-card a{color:#dce9f0}.map-button{display:inline-block;margin-top:8px;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid var(--line);font-weight:800}
-footer{background:#050d17;color:#93a5b5;text-align:center;padding:30px;border-top:1px solid var(--line)}footer strong{color:#fff}.small{font-size:12px;color:#728696}
-.card,.property-card,.info-panel,.contact-box,.owner-card,.office-card{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}.card:hover,.property-card:hover,.info-panel:hover,.contact-box:hover,.owner-card:hover,.office-card:hover{transform:translateY(-5px);box-shadow:0 30px 70px rgba(0,0,0,.25);border-color:rgba(220,235,242,.24)}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
-@keyframes panelIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}@keyframes orb{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(25px,-18px,0) scale(1.07)}}
-@media(max-width:850px){.hero-grid,.about-grid,.contact-grid,.owner-grid,.property-card{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.property-img{min-height:270px}nav{display:none;position:absolute;top:76px;left:0;right:0;background:rgba(5,15,27,.94);backdrop-filter:blur(18px);padding:18px 5%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}nav.open{display:flex}.menu{display:block}}
-@media(max-width:560px){.cards,.commercial-grid{grid-template-columns:1fr}.req-form{grid-template-columns:1fr}.req-form textarea,.submit-btn{grid-column:auto}section{padding:70px 0}.section-head h2,.section-heading h2{font-size:31px}.hero{padding:70px 0}.property-info{padding:25px}.specs{grid-template-columns:1fr}}
+  background:linear-gradient(135deg,rgba(255,255,255,.72),rgba(255,244,236,.52));
+  border:1px solid rgba(94,68,50,.13);box-shadow:var(--shadow);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)
+}
+.quick-card{border-radius:var(--radius);padding:32px}
+.quick-card h3{margin-top:0;font-size:24px;color:var(--bamboo-dark)}
+.quick-list{list-style:none;padding:0;margin:0}
+.quick-list li{padding:13px 0;border-bottom:1px solid rgba(94,68,50,.09);color:var(--muted)}
+.quick-list li:last-child{border:0}
+
+section{padding:95px 0;position:relative}
+.section-head,.section-heading{text-align:center;max-width:800px;margin:0 auto 42px}
+.section-head h2,.section-heading h2{font-size:40px;line-height:1.15;margin:10px 0 12px;letter-spacing:-.8px;color:var(--bamboo-dark)}
+.section-head p,.section-heading p{color:var(--muted);font-size:16px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border-radius:20px;padding:27px}
+.card-icon{font-size:29px}
+.card h3{margin:11px 0 7px;color:var(--bamboo-dark)}
+.card p{color:var(--muted)}
+.about{background:linear-gradient(180deg,transparent,rgba(243,200,207,.13),transparent)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.about-box{
+  border-radius:24px;padding:36px;background:linear-gradient(135deg,rgba(243,200,207,.38),rgba(255,255,255,.52));
+  border:1px solid var(--line);box-shadow:var(--shadow)
+}
+.about-box h3{font-size:27px;margin-top:0;color:var(--bamboo-dark)}
+
+.property-section,.requirements-section,.contact{
+  background:rgba(255,255,255,.24);border-top:1px solid rgba(94,68,50,.07);border-bottom:1px solid rgba(94,68,50,.07)
+}
+.tabs,.req-tabs{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:25px 0 30px}
+.tab,.req-tab{
+  cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.52);color:var(--bamboo-dark);
+  padding:11px 19px;border-radius:30px;font-weight:850;transition:.3s;backdrop-filter:blur(12px)
+}
+.tab:hover,.tab.active,.req-tab:hover,.req-tab.active{
+  background:linear-gradient(135deg,rgba(243,200,207,.75),rgba(185,216,108,.35));
+  border-color:rgba(138,102,72,.24);box-shadow:0 10px 28px rgba(94,68,50,.12);transform:translateY(-3px)
+}
+.panel,.req-panel{display:none}.panel.active,.req-panel.active{display:block;animation:panelIn .5s ease}
+
+.property-card{border-radius:25px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.property-img{width:100%;height:100%;min-height:420px;object-fit:cover}
+.property-info{padding:38px}
+.badge{
+  display:inline-block;background:rgba(185,216,108,.22);border:1px solid rgba(120,151,45,.22);
+  color:#5f702c;padding:6px 10px;border-radius:20px;font-size:10px;font-weight:900;letter-spacing:1.2px
+}
+.property-info h3{font-size:31px;margin:13px 0 5px;color:var(--bamboo-dark)}
+.location{color:var(--muted);font-weight:700}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}
+.spec{background:rgba(255,255,255,.48);border:1px solid rgba(94,68,50,.08);border-radius:12px;padding:11px;font-size:13px;color:var(--muted)}
+.spec strong{display:block;color:var(--bamboo-dark)}
+.price{font-size:28px;color:#d47737;font-weight:900;margin:15px 0}
+
+.info-panel{border-radius:22px;padding:36px}
+.info-panel h3{font-size:28px;margin-top:0;color:var(--bamboo-dark)}
+.info-panel p,.info-panel li{color:var(--muted)}
+.commercial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0}
+.commercial-grid div{
+  padding:17px;border:1px solid var(--line);border-radius:13px;
+  background:rgba(255,255,255,.45);text-align:center;font-weight:800;color:var(--bamboo-dark)
+}
+.why{background:linear-gradient(135deg,rgba(243,200,207,.18),rgba(185,216,108,.09))}
+.why .card{background:rgba(255,255,255,.5)}
+
+.requirements-section:before{
+  content:"";position:absolute;width:430px;height:430px;border-radius:50%;
+  background:rgba(243,200,207,.25);filter:blur(55px);left:-240px;top:20%;animation:floatSoft 13s ease-in-out infinite
+}
+.req-panel{border-radius:23px;padding:35px;max-width:920px;margin:auto}
+.req-panel h3{margin:0 0 7px;font-size:27px;color:var(--bamboo-dark)}
+.req-panel>p{color:var(--muted)}
+.req-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.req-form input,.req-form select,.req-form textarea{
+  width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;
+  background:rgba(255,255,255,.6);color:var(--ink);font:inherit;outline:none
+}
+.req-form input:focus,.req-form select:focus,.req-form textarea:focus{
+  border-color:rgba(238,152,82,.55);box-shadow:0 0 0 3px rgba(238,152,82,.12)
+}
+.req-form textarea{grid-column:1/-1;min-height:110px;resize:vertical}
+.submit-btn{
+  grid-column:1/-1;border:0;border-radius:11px;padding:14px;
+  background:linear-gradient(135deg,var(--orange),#d87c3e);color:#fff;font-weight:900;cursor:pointer;transition:.3s
+}
+.submit-btn:hover{transform:translateY(-3px);box-shadow:0 13px 28px rgba(216,124,62,.2)}
+.free-note{font-size:12px!important;color:#8b7b6f!important}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.contact-box,.owner-card,.office-card{border-radius:21px;padding:30px}
+.contact-box h3,.office-card h3,.owner-card h3{margin-top:0;color:var(--bamboo-dark)}
+.contact-link{display:block;padding:12px 0;border-bottom:1px solid rgba(94,68,50,.09);font-weight:750;color:var(--bamboo-dark)}
+.owner-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+.owner-card{display:flex;gap:20px}
+.owner-icon{width:60px;height:60px;min-width:60px;border-radius:50%;display:grid;place-items:center;background:rgba(243,200,207,.52);border:1px solid var(--line)}
+.owner-role{color:var(--orange);font-weight:800}
+.office-card p,.owner-card p{color:var(--muted)}
+.office-card a{color:var(--bamboo-dark)}
+.map-button{display:inline-block;margin-top:8px;padding:11px 16px;border-radius:10px;background:rgba(185,216,108,.32);border:1px solid rgba(120,151,45,.18);font-weight:850;color:var(--bamboo-dark)!important}
+
+.updates-section{padding:90px 0;background:linear-gradient(180deg,rgba(243,200,207,.10),rgba(185,216,108,.08))}
+.updates-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.update-card{
+  padding:27px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.72),rgba(243,200,207,.26));
+  border:1px solid var(--line);box-shadow:var(--shadow);transition:.4s;position:relative;overflow:hidden
+}
+.update-card:after{content:"";position:absolute;width:130px;height:130px;border-radius:50%;background:rgba(185,216,108,.18);right:-55px;bottom:-55px;transition:.6s}
+.update-card:hover{transform:translateY(-7px) rotate(.2deg);box-shadow:0 30px 70px rgba(94,68,50,.17)}
+.update-card:hover:after{transform:scale(1.5)}
+.update-tag{font-size:10px;letter-spacing:1.4px;font-weight:900;color:#cf7133}
+.update-card h3{font-size:21px;line-height:1.3;margin:12px 0 9px;color:var(--bamboo-dark)}
+.update-card p{color:var(--muted);font-size:14px}.update-card small{color:#8b7b6f}
+
+footer{background:#5e4432;color:#eadfd5;text-align:center;padding:30px;border-top:1px solid rgba(255,255,255,.1)}
+footer strong{color:#fff}.small{font-size:12px;color:#d0c0b3}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.card,.property-card,.info-panel,.contact-box,.owner-card,.office-card{
+  transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease
+}
+.card:hover,.property-card:hover,.info-panel:hover,.contact-box:hover,.owner-card:hover,.office-card:hover{
+  transform:translateY(-6px);box-shadow:0 30px 70px rgba(94,68,50,.16);border-color:rgba(138,102,72,.24)
+}
+@keyframes panelIn{from{opacity:0;transform:translateY(12px) scale(.99)}to{opacity:1;transform:none}}
+@keyframes floatSoft{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(28px,-20px,0) scale(1.08)}}
+@keyframes shimmer{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.hero .quick-card{position:relative;overflow:hidden}
+.hero .quick-card:before{
+  content:"";position:absolute;inset:0;width:35%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.26),transparent);
+  transform:translateX(-120%);animation:shimmer 7s ease-in-out infinite
+}
+@media(max-width:850px){
+  .hero-grid,.about-grid,.contact-grid,.owner-grid,.property-card{grid-template-columns:1fr}
+  .cards,.updates-grid{grid-template-columns:1fr 1fr}.property-img{min-height:270px}
+  nav{display:none;position:absolute;top:76px;left:0;right:0;background:rgba(255,250,243,.96);backdrop-filter:blur(18px);padding:18px 5%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+  nav.open{display:flex}.menu{display:block}
+}
+@media(max-width:560px){
+  .cards,.commercial-grid,.updates-grid{grid-template-columns:1fr}
+  .req-form{grid-template-columns:1fr}.req-form textarea,.submit-btn{grid-column:auto}
+  section{padding:70px 0}.section-head h2,.section-heading h2{font-size:31px}
+  .hero{padding:70px 0}.property-info{padding:25px}.specs{grid-template-columns:1fr}
+}
 </style>
 
 
 <style>
-.updates-section{padding:90px 0;background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(255,255,255,.035))}
-.updates-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.update-card{padding:27px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.035));border:1px solid var(--line);box-shadow:var(--shadow);transition:.35s;position:relative;overflow:hidden}
-.update-card:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:rgba(184,212,223,.07);right:-50px;bottom:-50px;transition:.5s}
-.update-card:hover{transform:translateY(-6px);border-color:rgba(220,235,242,.24);box-shadow:0 30px 70px rgba(0,0,0,.24)}
-.update-card:hover:after{transform:scale(1.5)}
-.update-tag{font-size:10px;letter-spacing:1.4px;font-weight:900;color:var(--accent2)}
-.update-card h3{font-size:21px;line-height:1.3;margin:12px 0 9px}.update-card p{color:var(--muted);font-size:14px}.update-card small{color:#8497a7}
-@media(max-width:850px){.updates-grid{grid-template-columns:1fr}}
+.glow-follow{
+  position:fixed;width:180px;height:180px;border-radius:50%;pointer-events:none;z-index:-1;
+  background:radial-gradient(circle,rgba(243,200,207,.20),rgba(185,216,108,.07),transparent 70%);
+  transform:translate(-50%,-50%);transition:left .25s ease-out,top .25s ease-out;mix-blend-mode:multiply
+}
+</style>
+
+
+<style>
+/* LLDC brand watermark */
+body:after{
+  content:"LLDC PROPERTY SOLUTIONS";
+  position:fixed;
+  left:50%;
+  top:54%;
+  transform:translate(-50%,-50%) rotate(-24deg);
+  font-size:clamp(34px,7vw,105px);
+  font-weight:950;
+  letter-spacing:5px;
+  color:rgba(94,68,50,.045);
+  white-space:nowrap;
+  pointer-events:none;
+  z-index:0;
+  user-select:none;
+}
+header,main,footer{position:relative;z-index:1}
+.brand-watermark{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:inherit;
+}
+.brand-watermark span{
+  position:absolute;right:18px;bottom:14px;
+  padding:6px 10px;border-radius:8px;
+  background:rgba(255,250,243,.68);
+  border:1px solid rgba(94,68,50,.13);
+  color:rgba(94,68,50,.62);
+  font-size:10px;font-weight:900;letter-spacing:1.3px;
+  backdrop-filter:blur(8px);
+}
+.photo-showcase{padding:95px 0;background:linear-gradient(180deg,rgba(243,200,207,.12),rgba(185,216,108,.08))}
+.photo-grid{display:grid;grid-template-columns:1.35fr .8fr .8fr;grid-template-rows:230px 230px;gap:15px}
+.photo-tile{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);background:#eadfd4}
+.photo-tile:first-child{grid-row:1/3}
+.photo-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .6s}
+.photo-tile:hover img{transform:scale(1.06);filter:saturate(1.06)}
+.photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(30,20,14,.72));display:flex;align-items:flex-end;padding:20px;color:#fff}
+.photo-overlay h3{margin:0;font-size:20px}
+.photo-overlay p{margin:4px 0 0;font-size:12px;color:rgba(255,255,255,.82)}
+.photo-badge{position:absolute;top:14px;left:14px;padding:7px 10px;border-radius:20px;background:rgba(255,250,243,.78);color:var(--bamboo-dark);font-size:10px;font-weight:900;letter-spacing:1px;backdrop-filter:blur(8px)}
+@media(max-width:800px){.photo-grid{grid-template-columns:1fr 1fr;grid-template-rows:260px 180px 180px}.photo-tile:first-child{grid-row:1/2;grid-column:1/-1}}
+@media(max-width:560px){.photo-grid{display:grid;grid-template-columns:1fr;grid-template-rows:260px 220px 220px 220px}.photo-tile:first-child{grid-row:auto;grid-column:auto}}
+</style>
+
+
+<style>
+/* Regular professional LLDC colours */
+html,body{background:#fff!important;color:#243b53!important}
+body{background:linear-gradient(180deg,#fff,#f7f9fc)!important}
+header{background:rgba(255,255,255,.96)!important;border-bottom:1px solid #e3e8ee!important}
+.logo,nav a{color:#102a43!important}.logo span,h1 span{color:#d5a33d!important}
+.hero{background:linear-gradient(135deg,#f8fafc,#eef3f7)!important}
+h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.property-info h3,.info-panel h3,.req-panel h3,.contact-box h3,.office-card h3,.owner-card h3,.update-card h3{color:#102a43!important}
+.hero p,.section-head p,.section-heading p,.card p,.info-panel p,.info-panel li,.req-panel>p,.update-card p,.office-card p,.owner-card p{color:#627d98!important}
+.quick-card,.card,.info-panel,.property-card,.contact-box,.owner-card,.office-card,.req-panel,.update-card,.about-box{background:#fff!important;border:1px solid #e1e7ed!important;box-shadow:0 10px 28px rgba(16,42,67,.10)!important;backdrop-filter:none!important}
+.about,.why,.updates-section{background:#f7f9fb!important}.property-section,.requirements-section,.contact,.photo-showcase{background:#fff!important}
+.eyebrow,.tab,.req-tab{background:#fff!important;color:#526d82!important;border-color:#d9e2ec!important}
+.tab.active,.req-tab.active,.tab:hover,.req-tab:hover{background:#102a43!important;color:#fff!important;border-color:#102a43!important}
+.btn-gold,.submit-btn{background:#d5a33d!important;color:#102a43!important}.btn-outline{background:#fff!important;color:#102a43!important;border-color:#cbd5df!important}
+.spec,.commercial-grid div{background:#f7f9fb!important;color:#526d82!important;border-color:#e1e7ed!important}.spec strong{color:#102a43!important}.price{color:#b57d18!important}
+.req-form input,.req-form select,.req-form textarea{background:#fff!important;color:#243b53!important;border-color:#cfd9e3!important}.req-form select option{background:#fff!important;color:#243b53!important}
+.photo-overlay{background:linear-gradient(180deg,transparent 42%,rgba(16,42,67,.76))!important}.photo-badge{background:rgba(255,255,255,.90)!important;color:#102a43!important}
+.brand-watermark span{background:rgba(255,255,255,.82)!important;color:rgba(16,42,67,.65)!important}.map-button{background:#102a43!important;color:#fff!important}
+.contact-link,.office-card a{color:#243b53!important}footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display:none!important}
+@media(max-width:850px){nav{background:#fff!important}}
 </style>
 
 </head>
@@ -85,7 +311,7 @@ footer{background:#050d17;color:#93a5b5;text-align:center;padding:30px;border-to
     <button class="menu" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
     <nav>
       <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a>
-      <a href="#properties">Properties</a><a href="#requirements">Requirements</a><a href="#updates">Updates</a><a href="#why">Why Us</a><a href="#contact">Contact</a>
+      <a href="#properties">Properties</a><a href="#requirements">Requirements</a><a href="#updates">Updates</a><a href="#property-visuals">Visuals</a><a href="#why">Why Us</a><a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -94,19 +320,19 @@ footer{background:#050d17;color:#93a5b5;text-align:center;padding:30px;border-to
 <section class="hero" id="home">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow">TRUSTWORTHY  • TRANSPARENT • PROFESSIONAL </span>
+      <span class="eyebrow">TRUST • TRANSPARENCY • PROFESSIONAL SERVICE</span>
       <h1>Your Property,<br><span>Our Priority</span></h1>
       <p>LLDC Property Solutions helps clients buy, sell, rent and lease residential and commercial properties with clear communication and personalized support.</p>
       <div class="actions">
-        <a class="btn btn-gold" href="tel:7879-444-555">Call 7879-444-555</a>
-        <a class="btn btn-outline" target="_blank" href="https://wa.me/917879-444-555">WhatsApp Us</a>
+        <a class="btn btn-gold" href="tel:7879444555">Call 7879444555</a>
+        <a class="btn btn-outline" target="_blank" href="https://wa.me/917879444555">WhatsApp Us</a>
       </div>
     </div>
     <div class="quick-card">
       <h3>What We Do</h3>
       <ul class="quick-list">
         <li>🏠 Residential Properties</li><li>🏢 Commercial Properties</li>
-        <li>🔑 Buying &amp; Selling</li><li>📋 Rental &amp; Leasing</li><li>🤝 Property Assistance</li><li>LEGAL ASSISTANCE</li>
+        <li>🔑 Buying &amp; Selling</li><li>📋 Rental &amp; Leasing</li><li>🤝 Property Assistance</li>
       </ul>
     </div>
   </div>
@@ -117,7 +343,7 @@ footer{background:#050d17;color:#93a5b5;text-align:center;padding:30px;border-to
     <div>
       <div class="section-head" style="text-align:left;margin:0">
         <span class="eyebrow" style="color:#9a6b13;border-color:#d6a43a">ABOUT LLDC</span>
-        <h2>Professional guidance from your requirement to possession.</h2>
+        <h2>Professional guidance from requirement to possession.</h2>
       </div>
       <p>LLDC Property Solutions is focused on making property transactions simple, transparent and client-friendly. We understand the importance of location, budget, property condition and long-term value.</p>
       <p>Whether you are looking to rent a home, sell a property, purchase an investment or find commercial space, our team works to connect you with suitable opportunities.</p>
@@ -168,7 +394,7 @@ footer{background:#050d17;color:#93a5b5;text-align:center;padding:30px;border-to
     </div>
 
     <div class="panel active" id="rent">
-      <div class="property-card">
+      <div class="property-card"><div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
         <img class="property-img" src="kingston-cover.jpg" alt="Kingston Elysia">
         <div class="property-info">
           <span class="badge">FEATURED RENTAL</span>
@@ -231,10 +457,43 @@ footer{background:#050d17;color:#93a5b5;text-align:center;padding:30px;border-to
 
 
 
+
+<section id="property-visuals" class="photo-showcase reveal">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">PROPERTY VISUALS</span>
+      <h2>Spaces That Inspire</h2>
+      <p>Explore the world of homes, villas, buildings and modern construction through LLDC Property Solutions.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-tile">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" alt="Premium modern house" loading="lazy">
+        <div class="photo-badge">PREMIUM HOMES</div>
+        <div class="photo-overlay"><div><h3>Modern Living</h3><p>Thoughtfully selected residential spaces</p></div></div>
+      </div>
+      <div class="photo-tile">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85" alt="Luxury villa exterior" loading="lazy">
+        <div class="photo-badge">VILLAS</div>
+        <div class="photo-overlay"><div><h3>Elegant Villas</h3><p>Comfort, space &amp; style</p></div></div>
+              </div>
+      <div class="photo-tile">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85" alt="Modern commercial building" loading="lazy">
+        <div class="photo-badge">COMMERCIAL</div>
+        <div class="photo-overlay"><div><h3>Modern Buildings</h3><p>Commercial opportunities</p></div></div>
+              </div>
+      <div class="photo-tile">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85" alt="Architectural construction plans" loading="lazy">
+        <div class="photo-badge">CONSTRUCTION</div>
+        <div class="photo-overlay"><div><h3>Built for Tomorrow</h3><p>Construction &amp; development</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="updates" class="reveal" class="updates-section">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">NEWS/UPDATES</span>
+      <span class="eyebrow">DIGITAL UPDATES</span>
       <h2>Thoughts, Market Notes & Important Information</h2>
       <p>A simple space for regular LLDC updates, useful property information and daily thoughts.</p>
     </div>
@@ -359,11 +618,12 @@ footer{background:#050d17;color:#93a5b5;text-align:center;padding:30px;border-to
       <div class="owner-card">
         <div class="owner-icon">👤</div>
         <div>
-          <h3>Kiran Prasad Bade</h3>
+          <h3>Adv. Prasad Rajendra Bade</h3>
+<p><strong>Qualifications:</strong> B.A, B.B.A, L.L.M</p>
 <p>Leading with a client-first approach and a focus on practical, transparent property solutions.</p>
           <div class="owner-actions">
-            <a class="btn btn-primary" href="tel:+917447-699-197">Call Owner</a>
-            <a class="btn btn-outline" href="https://wa.me/917447-699-197" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-primary" href="tel:+918446446007">Call Owner</a>
+            <a class="btn btn-outline" href="https://wa.me/918446446007" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
       </div>
@@ -372,7 +632,10 @@ footer{background:#050d17;color:#93a5b5;text-align:center;padding:30px;border-to
         <p><strong>LLDC Property Solutions</strong></p>
         <p>4, Anant Manohar Apartment,<br>Paud Rd, Left Bhusari Colony,<br>Right Bhusari Colony, Kothrud,<br>Pune, Maharashtra 411038</p>
         <div class="contact-lines">
-         </div>
+          <p>📞 <a href="tel:+918446446007">8446446007</a></p>
+          <p>💬 <a href="https://wa.me/918446446007" target="_blank" rel="noopener">WhatsApp: 8446446007</a></p>
+          <p>✉️ <a href="mailto:adv.prasadbade@gmail.com">adv.prasadbade@gmail.com</a></p>
+        </div>
         <a class="map-button" href="https://maps.app.goo.gl/X3Ku3aSke16KZWF88" target="_blank" rel="noopener">📍 Open Office Location in Google Maps</a>
       </div>
     </div>
@@ -429,16 +692,37 @@ document.querySelectorAll('.req-form').forEach(function(form){
 </script>
 
 
+
+
+
 <script>
 (function(){
-  const items=document.querySelectorAll('.reveal');
-  const observer=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+  const glow=document.createElement('div');
+  glow.className='glow-follow';
+  document.body.appendChild(glow);
+  let mx=window.innerWidth/2,my=window.innerHeight/2;
+  window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;glow.style.left=mx+'px';glow.style.top=my+'px';},{passive:true});
+
+  const revealItems=document.querySelectorAll('.reveal');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
   },{threshold:.12});
-  items.forEach(i=>observer.observe(i));
+  revealItems.forEach(item=>observer.observe(item));
+
+  document.querySelectorAll('.cards,.updates-grid,.commercial-grid').forEach(group=>{
+    [...group.children].forEach((item,i)=>{
+      item.style.transitionDelay=(i*70)+'ms';
+      item.classList.add('reveal');
+      observer.observe(item);
+    });
+  });
 })();
 </script>
 
 </body>
 </html>
-
