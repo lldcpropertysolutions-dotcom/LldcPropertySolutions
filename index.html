@@ -339,6 +339,54 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
 @media(max-width:850px){nav{background:#fff!important}}
 </style>
 
+<style>
+/* Animated property category invitation */
+.property-tab-callout{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:max-content;max-width:100%;margin:24px auto 4px;padding:9px 16px;
+  border:1px solid #d9e2ec;border-radius:999px;background:#f7f9fb;
+  color:#334e68;font-size:14px;font-weight:800;box-shadow:0 8px 22px rgba(16,42,67,.07)
+}
+.property-tab-callout .tap-icon{display:inline-block;font-size:20px;animation:tapCue 1.4s ease-in-out infinite}
+.property-section .tabs{gap:14px;margin:18px auto 18px}
+.property-section .tab{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-width:150px;padding:15px 27px;font-size:16px;line-height:1.2;
+  border-width:2px!important;box-shadow:0 8px 22px rgba(16,42,67,.08);
+  transform-origin:center;will-change:transform,box-shadow
+}
+.property-section .tab .tab-icon{display:inline-block;margin-right:7px;font-size:18px;vertical-align:-1px}
+.property-section .tabs:not(.has-open-tab) .tab{animation:tabInvite 3.6s ease-in-out infinite}
+.property-section .tabs:not(.has-open-tab) .tab:nth-child(2){animation-delay:.18s}
+.property-section .tabs:not(.has-open-tab) .tab:nth-child(3){animation-delay:.36s}
+.property-section .tabs:not(.has-open-tab) .tab:nth-child(4){animation-delay:.54s}
+.property-section .tab::after{
+  content:"";position:absolute;z-index:-1;inset:-30% auto -30% -42%;width:32%;
+  background:linear-gradient(90deg,transparent,rgba(213,163,61,.24),transparent);
+  transform:skewX(-18deg);animation:tabShine 4.6s ease-in-out infinite
+}
+.property-section .tab:nth-child(2)::after{animation-delay:.3s}
+.property-section .tab:nth-child(3)::after{animation-delay:.6s}
+.property-section .tab:nth-child(4)::after{animation-delay:.9s}
+.property-section .tab:hover{transform:translateY(-4px) scale(1.035)!important;box-shadow:0 14px 30px rgba(16,42,67,.16)!important}
+.property-section .tab.active{transform:translateY(-3px) scale(1.025)!important;box-shadow:0 14px 32px rgba(16,42,67,.22)!important}
+.property-section .tabs.has-open-tab .tab{animation:none}
+.property-section .tabs.has-open-tab .tab::after{animation:none;display:none}
+.property-hint{font-size:15px;font-weight:700}
+@keyframes tapCue{0%,100%{transform:translateY(0) rotate(-8deg)}45%{transform:translateY(5px) rotate(-2deg)}65%{transform:translateY(2px) rotate(-5deg)}}
+@keyframes tabInvite{0%,55%,100%{transform:translateY(0);box-shadow:0 8px 22px rgba(16,42,67,.08)}65%{transform:translateY(-5px);box-shadow:0 14px 30px rgba(213,163,61,.22)}75%{transform:translateY(0)}}
+@keyframes tabShine{0%,68%{left:-42%}88%,100%{left:120%}}
+@media(max-width:700px){
+  .property-section .tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;gap:11px}
+  .property-section .tab{min-width:0;width:100%;padding:14px 10px;font-size:15px}
+  .property-tab-callout{width:100%;font-size:13px;text-align:center}
+}
+@media(max-width:380px){.property-section .tabs{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){
+  .property-tab-callout .tap-icon,.property-section .tabs:not(.has-open-tab) .tab,.property-section .tab::after{animation:none!important}
+}
+</style>
+
 </head>
 <body>
 
@@ -400,11 +448,12 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
       <h2>Find the Right Property</h2>
       <p>Choose a category and tell LLDC what you are looking for.</p>
     </div>
+    <p class="property-tab-callout"><span class="tap-icon" aria-hidden="true">👇</span> Tap a category to check available properties</p>
     <div class="tabs" aria-label="Property categories">
-      <button class="tab" type="button" data-panel="sale" aria-expanded="false" aria-controls="sale">For Sale</button>
-      <button class="tab" type="button" data-panel="rent" aria-expanded="false" aria-controls="rent">For Rent</button>
-      <button class="tab" type="button" data-panel="purchase" aria-expanded="false" aria-controls="purchase">For Purchase</button>
-      <button class="tab" type="button" data-panel="commercial" aria-expanded="false" aria-controls="commercial">Commercial</button>
+      <button class="tab" type="button" data-panel="sale" aria-expanded="false" aria-controls="sale"><span class="tab-icon" aria-hidden="true">🏠</span>For Sale</button>
+      <button class="tab" type="button" data-panel="rent" aria-expanded="false" aria-controls="rent"><span class="tab-icon" aria-hidden="true">🔑</span>For Rent</button>
+      <button class="tab" type="button" data-panel="purchase" aria-expanded="false" aria-controls="purchase"><span class="tab-icon" aria-hidden="true">🔍</span>For Purchase</button>
+      <button class="tab" type="button" data-panel="commercial" aria-expanded="false" aria-controls="commercial"><span class="tab-icon" aria-hidden="true">🏢</span>Commercial</button>
     </div>
     <p class="property-hint">Select a category to view properties. Click the selected category again to close it.</p>
 
@@ -966,10 +1015,13 @@ document.querySelectorAll('.tab').forEach(function(tab){
     document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
     document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
     document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-expanded','false')});
+    var tabGroup=tab.closest('.tabs');
+    if(tabGroup) tabGroup.classList.remove('has-open-tab');
     if(!isOpen && target){
       tab.classList.add('active');
       tab.setAttribute('aria-expanded','true');
       target.classList.add('active');
+      if(tabGroup) tabGroup.classList.add('has-open-tab');
     }
   });
 });
