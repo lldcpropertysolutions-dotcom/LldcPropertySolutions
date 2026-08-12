@@ -649,6 +649,48 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
   .service-tab,.service-icon,.service-desc{transition:none!important}
 }
 </style>
+
+<style>
+/* Full Our Services section — scoped to avoid conflicts with property and hero tabs */
+.our-services{position:relative;padding:96px 0;background:linear-gradient(180deg,rgba(255,255,255,.48),rgba(247,239,228,.72));overflow:hidden}
+.our-services:before{content:"";position:absolute;width:420px;height:420px;right:-180px;top:80px;border-radius:50%;background:rgba(243,200,207,.2);filter:blur(2px);pointer-events:none}
+.our-services .our-services-head{max-width:760px;margin:0 auto 34px;text-align:center;position:relative;z-index:1}
+.our-services .our-services-head h2{margin:12px 0 14px;color:#0b1f35;font-size:clamp(34px,5vw,54px);line-height:1.08;letter-spacing:-1.5px}
+.our-services .our-services-head p{margin:0;color:var(--muted);font-size:17px}
+.our-legal-panel{position:relative;z-index:1;display:grid;grid-template-columns:minmax(270px,.82fr) minmax(0,1.48fr);min-height:390px;overflow:hidden;border:1px solid rgba(213,165,54,.3);border-radius:28px;background:#fff;box-shadow:0 22px 70px rgba(10,31,53,.13)}
+.our-legal-panel:after{content:"LLDC";position:absolute;right:-12px;bottom:-64px;color:rgba(11,31,53,.035);font-weight:950;font-size:11rem;letter-spacing:-.08em;pointer-events:none}
+.our-legal-profile{position:relative;z-index:1;padding:38px;color:#fff;background:linear-gradient(145deg,rgba(213,165,54,.18),transparent 45%),radial-gradient(circle at 90% 0,rgba(106,169,217,.18),transparent 18rem),#0b1f35}
+.our-legal-profile:after{content:"";position:absolute;inset:0;opacity:.22;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0 28px,rgba(255,255,255,.045) 29px 30px);animation:ourLegalScan 7s linear infinite}
+.our-legal-badge{position:relative;z-index:2;display:grid;place-items:center;width:62px;height:62px;border:1px solid rgba(240,207,121,.55);border-radius:18px;background:rgba(255,255,255,.07);font-size:1.75rem}
+.our-legal-eyebrow{position:relative;z-index:2;margin:27px 0 9px;color:#f0cf79;font-size:.76rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}
+.our-legal-profile h3{position:relative;z-index:2;margin:0;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.12;letter-spacing:-.025em}
+.our-degrees{position:relative;z-index:2;margin:10px 0 0;color:#d8e2ea;font-size:.94rem;font-weight:750;letter-spacing:.08em}
+.our-legal-note{position:relative;z-index:2;margin:24px 0;color:#c9d5df;line-height:1.7}
+.our-consult-btn{position:relative;z-index:2;display:inline-flex;align-items:center;gap:10px;padding:13px 17px;border:1px solid rgba(240,207,121,.6);border-radius:12px;color:#fff;background:rgba(255,255,255,.06);font-weight:850;transition:.25s ease}
+.our-consult-btn:hover,.our-consult-btn:focus-visible{outline:none;color:#071522;background:#f0cf79;transform:translateY(-2px)}
+.our-legal-details{position:relative;z-index:1;padding:35px 38px 32px}
+.our-details-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding-bottom:20px;border-bottom:1px solid #e6e1d4}
+.our-details-top h3{margin:0 0 7px;color:#0b1f35;font-size:1.28rem}.our-details-top p{margin:0;color:#657383;line-height:1.6}
+.our-live-chip{flex:none;display:flex;align-items:center;gap:8px;padding:8px 11px;border-radius:999px;color:#315a40;background:#edf8f0;font-size:.74rem;font-weight:850}
+.our-live-chip:before{content:"";width:8px;height:8px;border-radius:50%;background:#48a364;box-shadow:0 0 0 0 rgba(72,163,100,.5);animation:ourPulse 2s infinite}
+.our-legal-columns{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin-top:24px}.our-legal-columns h4{margin:0 0 13px;color:#846116;font-size:.77rem;letter-spacing:.12em;text-transform:uppercase}
+.our-check-list,.our-city-list{list-style:none;margin:0;padding:0}.our-check-list{display:grid;gap:10px}.our-check-list li{position:relative;padding-left:27px;color:#425366;line-height:1.45}.our-check-list li:before{content:"✓";position:absolute;left:0;color:#d5a536;font-weight:950}
+.our-city-list{display:flex;flex-wrap:wrap;gap:8px}.our-city-list li{padding:9px 11px;border:1px solid #e6e1d4;border-radius:10px;background:#fbfaf7;color:#5b6671;font-size:.85rem}.our-network-note{margin:15px 0 0;color:#657383;font-size:.82rem;line-height:1.5}
+.our-service-stage{position:relative;z-index:1;margin-top:34px;padding:30px;border:1px solid #dce3e9;border-radius:28px;background:linear-gradient(145deg,#fff,#f5f8fa);box-shadow:0 16px 55px rgba(10,31,53,.08)}
+.our-stage-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}.our-stage-head h3{margin:0;color:#0b1f35;font-size:clamp(1.6rem,3vw,2.3rem);letter-spacing:-.025em}.our-stage-head p{margin:8px 0 0;color:#657383}.our-counter{font-size:.85rem;font-weight:900;color:#8b681a;letter-spacing:.1em}
+.our-service-layout{display:grid;grid-template-columns:260px 1fr;gap:22px}.our-service-tabs{display:grid;gap:9px}
+.our-service-tab{width:100%;display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid transparent;border-radius:14px;color:#4b5c6e;background:transparent;text-align:left;font-weight:780;cursor:pointer;transition:.25s ease}
+.our-service-tab:hover{background:#eef3f6;color:#0b1f35}.our-service-tab.active{color:#fff;background:#0b1f35;box-shadow:0 11px 28px rgba(11,31,53,.18)}
+.our-tab-icon{display:grid;place-items:center;width:34px;height:34px;flex:none;border:1px solid #dae2e8;border-radius:10px;background:#fff;font-size:1rem}.our-service-tab.active .our-tab-icon{border-color:rgba(240,207,121,.4);background:rgba(255,255,255,.08)}
+.our-service-display{position:relative;min-height:310px;overflow:hidden;padding:38px;border-radius:20px;color:#fff;background:linear-gradient(130deg,rgba(18,53,83,.25),transparent 55%),#071522}
+.our-service-display:before{content:"";position:absolute;inset:-50% -20%;background:linear-gradient(115deg,transparent 43%,rgba(213,165,54,.16) 50%,transparent 57%);transform:translateX(-60%);animation:ourShine 6s ease-in-out infinite}
+.our-display-content{position:relative;z-index:2;max-width:650px;animation:ourEnter .55s ease both}.our-display-icon{display:grid;place-items:center;width:54px;height:54px;border:1px solid rgba(240,207,121,.55);border-radius:16px;background:rgba(255,255,255,.06);font-size:1.45rem}.our-display-label{margin:24px 0 9px;color:#f0cf79;font-size:.74rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.our-display-content h3{margin:0;font-size:clamp(1.7rem,4vw,2.8rem);letter-spacing:-.035em}.our-display-content p{max-width:590px;margin:14px 0 23px;color:#cad7e1;font-size:1.02rem;line-height:1.7}.our-display-link{display:inline-flex;align-items:center;gap:10px;color:#fff;font-weight:850}.our-display-link span{transition:.2s}.our-display-link:hover span{transform:translateX(4px)}
+.our-progress-track{position:absolute;left:38px;right:38px;bottom:26px;height:3px;overflow:hidden;border-radius:9px;background:rgba(255,255,255,.13)}.our-progress-bar{height:100%;width:0;background:linear-gradient(90deg,#d5a536,#f0cf79);animation:ourProgress 5s linear forwards}
+@keyframes ourLegalScan{to{transform:translateX(30px)}}@keyframes ourPulse{65%{box-shadow:0 0 0 8px rgba(72,163,100,0)}}@keyframes ourShine{50%,100%{transform:translateX(60%)}}@keyframes ourEnter{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}@keyframes ourProgress{to{width:100%}}
+@media(max-width:900px){.our-legal-panel{grid-template-columns:1fr}.our-legal-profile{padding:30px}.our-legal-details{padding:30px}.our-service-layout{grid-template-columns:1fr}.our-service-tabs{grid-template-columns:repeat(3,1fr)}.our-service-tab{justify-content:center}.our-service-tab .our-tab-label{display:none}}
+@media(max-width:640px){.our-services{padding:72px 0}.our-legal-panel,.our-service-stage{border-radius:20px}.our-legal-details{padding:25px 20px}.our-legal-columns{grid-template-columns:1fr}.our-details-top{display:block}.our-live-chip{width:max-content;margin-top:14px}.our-service-stage{padding:18px}.our-stage-head{align-items:flex-start}.our-counter{margin-top:7px}.our-service-display{min-height:350px;padding:28px 23px}.our-progress-track{left:23px;right:23px}.our-service-tabs{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){.our-services *,.our-services *:before,.our-services *:after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style>
 </head>
 <body>
 
@@ -657,7 +699,7 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
     <a class="logo" href="#home">LLDC <span>Property Solutions</span></a>
     <button class="menu" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
     <nav>
-      <a href="#home">Home</a><a href="#about">About</a>
+      <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a>
       <a href="#properties">Properties</a><a href="#requirements">Requirements</a><a href="#updates">News/Updates</a><a href="#property-visuals">Visuals</a><a href="#why">Why Us</a><a href="#contact">Contact</a>
     </nav>
   </div>
@@ -797,6 +839,82 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
     <div class="about-box">
       <h3>Our Goal</h3>
       <p>To become a trusted name in real estate by delivering the right solutions, honest guidance, and exceptional service to every client.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="services" class="our-services reveal">
+  <div class="container">
+    <div class="our-services-head">
+      <span class="eyebrow" style="color:#9a6b13;border-color:#d6a43a">PROFESSIONAL SUPPORT · END TO END</span>
+      <h2>Our Services</h2>
+      <p>Property assistance backed by clear documentation, responsive coordination, and trusted legal guidance across every important step.</p>
+    </div>
+
+    <div class="our-legal-panel" aria-labelledby="ourLegalTitle">
+      <div class="our-legal-profile">
+        <div class="our-legal-badge" aria-hidden="true">⚖️</div>
+        <p class="our-legal-eyebrow">Legal Services · First Row</p>
+        <h3 id="ourLegalTitle">Adv. Prasad Rajendra Bade</h3>
+        <p class="our-degrees">B.A. · B.B.A. · L.L.M.</p>
+        <p class="our-legal-note">Professional legal guidance for property documentation, agreements, registration, and consultation.</p>
+        <a class="our-consult-btn" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20would%20like%20a%20legal%20consultation." target="_blank" rel="noopener">Request Legal Consultation <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="our-legal-details">
+        <div class="our-details-top">
+          <div>
+            <h3>Property Legal &amp; Documentation Support</h3>
+            <p>Assistance through our association with advocates and law firms in key cities of Maharashtra.</p>
+          </div>
+          <div class="our-live-chip">Consultation available</div>
+        </div>
+        <div class="our-legal-columns">
+          <div>
+            <h4>Legal assistance</h4>
+            <ul class="our-check-list">
+              <li>Review of leave and licence agreement drafts</li>
+              <li>Custom drafting for special agreement requirements</li>
+              <li>Agreement to Sale and Sale Deed documentation</li>
+              <li>Lease Deed and registration documentation</li>
+              <li>Will documentation and registration assistance</li>
+              <li>Property-related legal consultation</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Associated advocate network</h4>
+            <ul class="our-city-list">
+              <li>Dhananjay Ashtekar · Pune</li>
+              <li>Ajinkya Jaybhave · Mumbai</li>
+              <li>Jaybhave &amp; Associates · Nashik</li>
+              <li>Subhash Malani · Aurangabad</li>
+            </ul>
+            <p class="our-network-note">City-wise legal coordination is subject to the nature and location of each matter.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="our-service-stage" aria-labelledby="ourPropertyServicesTitle">
+      <div class="our-stage-head">
+        <div><h3 id="ourPropertyServicesTitle">Complete Property Assistance</h3><p>Tap any service to see how LLDC can help.</p></div>
+        <div class="our-counter" aria-live="polite"><span id="ourCurrentCount">01</span> / 06</div>
+      </div>
+      <div class="our-service-layout">
+        <div class="our-service-tabs" role="tablist" aria-label="LLDC complete services">
+          <button class="our-service-tab active" type="button" role="tab" aria-selected="true" data-index="0"><span class="our-tab-icon">🏠</span><span class="our-tab-label">Residential Sale</span></button>
+          <button class="our-service-tab" type="button" role="tab" aria-selected="false" data-index="1"><span class="our-tab-icon">🔑</span><span class="our-tab-label">Rental Services</span></button>
+          <button class="our-service-tab" type="button" role="tab" aria-selected="false" data-index="2"><span class="our-tab-icon">🏢</span><span class="our-tab-label">Commercial</span></button>
+          <button class="our-service-tab" type="button" role="tab" aria-selected="false" data-index="3"><span class="our-tab-icon">🎯</span><span class="our-tab-label">Property Purchase</span></button>
+          <button class="our-service-tab" type="button" role="tab" aria-selected="false" data-index="4"><span class="our-tab-icon">📄</span><span class="our-tab-label">Documentation</span></button>
+          <button class="our-service-tab" type="button" role="tab" aria-selected="false" data-index="5"><span class="our-tab-icon">🤝</span><span class="our-tab-label">Client Support</span></button>
+        </div>
+        <div class="our-service-display" role="tabpanel">
+          <div class="our-display-content" id="ourDisplayContent"></div>
+          <div class="our-progress-track" aria-hidden="true"><div class="our-progress-bar" id="ourProgressBar"></div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1534,6 +1652,37 @@ document.querySelectorAll('.req-form').forEach(function(form){
 
   activate(0,false);
   start();
+})();
+</script>
+
+<script>
+(function(){
+  var services=[
+    {icon:'🏠',label:'Residential Sale',title:'Sell Your Property with Confidence',text:'From listing presentation and buyer coordination to negotiation support, we help position your property for a smooth and transparent sale.',link:'Explore Sale Properties',href:'#properties'},
+    {icon:'🔑',label:'Rental Services',title:'Find the Right Tenant or Home',text:'Residential rental assistance for families, working professionals, owners, and tenants—with clear communication from enquiry to possession.',link:'Explore Rental Properties',href:'#properties'},
+    {icon:'🏢',label:'Commercial Solutions',title:'Workspaces That Fit Your Business',text:'Office, retail, and commercial property support based on location, area, budget, amenities, and the operational needs of your business.',link:'Explore Commercial Properties',href:'#properties'},
+    {icon:'🎯',label:'Property Purchase',title:'Focused Property Search',text:'Share your exact requirement and LLDC will shortlist suitable options, coordinate visits, and support your purchase decision.',link:'Submit Purchase Requirement',href:'#requirements'},
+    {icon:'📄',label:'Documentation',title:'Agreements & Registration Support',text:'Coordinated assistance for leave and licence agreements, sale documents, lease deeds, registration steps, and related paperwork.',link:'Ask About Documentation',href:'#contact'},
+    {icon:'🤝',label:'Client Support',title:'One Point of Contact',text:'Responsive updates, property-specific coordination, visit scheduling, and continued assistance throughout your real-estate journey.',link:'Contact LLDC',href:'#contact'}
+  ];
+  var tabs=Array.prototype.slice.call(document.querySelectorAll('.our-service-tab'));
+  var content=document.getElementById('ourDisplayContent');
+  var count=document.getElementById('ourCurrentCount');
+  var progress=document.getElementById('ourProgressBar');
+  var stage=document.querySelector('.our-service-stage');
+  if(!stage || !content || !tabs.length) return;
+  var active=0,timer=null,reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function render(index){
+    active=index;var item=services[index];
+    tabs.forEach(function(tab,i){tab.classList.toggle('active',i===index);tab.setAttribute('aria-selected',i===index?'true':'false');tab.setAttribute('tabindex',i===index?'0':'-1')});
+    content.style.animation='none';void content.offsetWidth;
+    content.innerHTML='<div class="our-display-icon" aria-hidden="true">'+item.icon+'</div><div class="our-display-label">'+item.label+'</div><h3>'+item.title+'</h3><p>'+item.text+'</p><a class="our-display-link" href="'+item.href+'">'+item.link+' <span aria-hidden="true">→</span></a>';
+    content.style.animation='ourEnter .55s ease both';count.textContent=String(index+1).padStart(2,'0');progress.style.animation='none';void progress.offsetWidth;progress.style.animation='ourProgress 5s linear forwards';
+  }
+  function start(){window.clearInterval(timer);if(!reduceMotion) timer=window.setInterval(function(){render((active+1)%services.length)},5000)}
+  tabs.forEach(function(tab,index){tab.addEventListener('click',function(){render(index);start()});tab.addEventListener('keydown',function(event){var next=null;if(event.key==='ArrowDown'||event.key==='ArrowRight')next=index+1;if(event.key==='ArrowUp'||event.key==='ArrowLeft')next=index-1;if(event.key==='Home')next=0;if(event.key==='End')next=tabs.length-1;if(next!==null){event.preventDefault();next=(next+tabs.length)%tabs.length;render(next);tabs[next].focus();window.clearInterval(timer)}})});
+  stage.addEventListener('mouseenter',function(){window.clearInterval(timer)});stage.addEventListener('mouseleave',start);stage.addEventListener('focusin',function(){window.clearInterval(timer)});stage.addEventListener('focusout',start);
+  render(0);start();
 })();
 </script>
 </body>
