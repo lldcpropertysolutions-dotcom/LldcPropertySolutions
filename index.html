@@ -4,7 +4,7 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <!-- Live refresh: services section removed; deployment refreshed 2026-08-12 -->
+  <!-- Live refresh: animated What We Do service slider added 2026-08-12 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="LLDC Property Solutions - Residential and commercial property solutions for sale, rent, purchase and leasing in Pune.">
@@ -391,6 +391,264 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
 }
 </style>
 
+
+<style>
+/* Animated digital What We Do service slider */
+.services-slider{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:28px 26px 20px!important;
+  border:1px solid #dbe4ec!important;
+  border-radius:26px!important;
+  box-shadow:0 24px 65px rgba(16,42,67,.15)!important;
+}
+.hero .quick-card.services-slider:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:-45% -20% auto;
+  height:155px;
+  width:auto;
+  background:linear-gradient(180deg,transparent,rgba(213,163,61,.10),transparent);
+  transform:translateY(-120%);
+  animation:serviceScan 8s ease-in-out infinite;
+  pointer-events:none;
+}
+.services-slider:after{
+  content:"";
+  position:absolute;
+  z-index:-2;
+  width:190px;
+  height:190px;
+  right:-80px;
+  top:-90px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(213,163,61,.18),transparent 68%);
+  animation:serviceGlow 5.5s ease-in-out infinite;
+  pointer-events:none;
+}
+.services-slider-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:11px;
+}
+.services-slider-head h3{
+  margin:2px 0 0!important;
+  font-size:26px!important;
+  line-height:1.15;
+}
+.services-kicker{
+  display:block;
+  color:#b57d18;
+  font-size:9px;
+  font-weight:950;
+  letter-spacing:1.8px;
+}
+.service-live{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  flex:0 0 auto;
+  margin-top:4px;
+  padding:6px 9px;
+  border:1px solid #dbe4ec;
+  border-radius:999px;
+  color:#526d82;
+  background:#f8fafc;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+.service-live-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#d5a33d;
+  box-shadow:0 0 0 0 rgba(213,163,61,.45);
+  animation:serviceLive 2s ease-out infinite;
+}
+.service-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  border-top:1px solid #edf1f5;
+}
+.service-item{
+  position:relative;
+  border-bottom:1px solid #e8edf2;
+  transition:background .35s ease,border-color .35s ease;
+}
+.service-tab{
+  width:100%;
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr) 28px;
+  align-items:center;
+  gap:11px;
+  padding:12px 5px;
+  border:0;
+  border-radius:12px;
+  background:transparent;
+  color:#52606d;
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+  transition:padding .35s ease,background .35s ease,color .35s ease,transform .35s ease;
+}
+.service-tab:hover,.service-tab:focus-visible{
+  color:#102a43;
+  background:#f5f8fb;
+  outline:none;
+}
+.service-tab:focus-visible{
+  box-shadow:inset 0 0 0 2px rgba(213,163,61,.55);
+}
+.service-icon{
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  border:1px solid #e1e8ee;
+  border-radius:11px;
+  background:#f7f9fb;
+  font-size:18px;
+  filter:grayscale(.18);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),background .35s ease,border-color .35s ease,box-shadow .35s ease;
+}
+.service-title{
+  font-size:15px;
+  font-weight:760;
+  letter-spacing:.05px;
+}
+.service-number{
+  color:#9fb0bf;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-align:right;
+}
+.service-item.active{
+  margin:4px 0;
+  border-color:transparent;
+  border-radius:14px;
+  background:linear-gradient(100deg,#f8fafc 0%,#fff9eb 100%);
+  box-shadow:inset 3px 0 0 #d5a33d,0 7px 20px rgba(16,42,67,.07);
+}
+.service-item.active .service-tab{
+  padding:13px 10px 8px 11px;
+  color:#102a43;
+}
+.service-item.active .service-icon{
+  color:#102a43;
+  background:#fff;
+  border-color:rgba(213,163,61,.46);
+  box-shadow:0 7px 18px rgba(181,125,24,.14);
+  transform:translateY(-1px) scale(1.08) rotate(-2deg);
+  filter:none;
+}
+.service-item.active .service-title{font-weight:900}
+.service-item.active .service-number{color:#b57d18}
+.service-desc{
+  display:grid;
+  grid-template-rows:0fr;
+  opacity:0;
+  transform:translateX(12px);
+  transition:grid-template-rows .45s cubic-bezier(.2,.75,.2,1),opacity .35s ease,transform .45s ease;
+}
+.service-item.active .service-desc{
+  grid-template-rows:1fr;
+  opacity:1;
+  transform:none;
+}
+.service-desc-inner{
+  min-height:0;
+  overflow:hidden;
+  padding:0 13px 0 60px;
+}
+.service-item.active .service-desc-inner{padding-bottom:14px}
+.service-desc p{
+  margin:0 0 7px;
+  color:#627d98!important;
+  font-size:12px;
+  line-height:1.55;
+}
+.service-desc a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:#9a6b13;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.15px;
+}
+.service-desc a span{transition:transform .25s ease}
+.service-desc a:hover span{transform:translateX(4px)}
+.service-progress{
+  position:absolute;
+  left:3px;
+  bottom:0;
+  height:2px;
+  width:0;
+  border-radius:4px;
+  background:linear-gradient(90deg,#d5a33d,#f0c96c);
+  box-shadow:0 0 10px rgba(213,163,61,.42);
+}
+.service-item.active .service-progress{animation:serviceProgress 4.6s linear forwards}
+.services-slider.is-paused .service-item.active .service-progress{animation-play-state:paused}
+.services-slider-foot{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  padding-top:13px;
+  color:#829ab1;
+  font-size:9px;
+  font-weight:850;
+  letter-spacing:.55px;
+  text-transform:uppercase;
+}
+.service-swipe{
+  display:inline-block;
+  color:#b57d18;
+  font-size:13px;
+  animation:serviceNudge 1.8s ease-in-out infinite;
+}
+@keyframes serviceProgress{from{width:0}to{width:calc(100% - 6px)}}
+@keyframes serviceLive{
+  0%{box-shadow:0 0 0 0 rgba(213,163,61,.45)}
+  70%{box-shadow:0 0 0 7px rgba(213,163,61,0)}
+  100%{box-shadow:0 0 0 0 rgba(213,163,61,0)}
+}
+@keyframes serviceScan{
+  0%,15%{transform:translateY(-125%);opacity:0}
+  42%{opacity:1}
+  70%,100%{transform:translateY(430%);opacity:0}
+}
+@keyframes serviceGlow{
+  0%,100%{transform:scale(.9);opacity:.65}
+  50%{transform:scale(1.15);opacity:1}
+}
+@keyframes serviceNudge{
+  0%,100%{transform:translateY(-1px)}
+  50%{transform:translateY(3px)}
+}
+@media(max-width:850px){
+  .services-slider{max-width:620px;margin:0 auto;width:100%}
+}
+@media(max-width:560px){
+  .services-slider{padding:23px 17px 16px!important}
+  .services-slider-head h3{font-size:23px!important}
+  .service-tab{grid-template-columns:36px minmax(0,1fr) 24px;gap:9px;padding:11px 3px}
+  .service-title{font-size:14px}
+  .service-desc-inner{padding-left:55px}
+  .services-slider-foot{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero .quick-card.services-slider:before,.services-slider:after,.service-live-dot,.service-progress,.service-swipe{animation:none!important}
+  .service-tab,.service-icon,.service-desc{transition:none!important}
+}
+</style>
 </head>
 <body>
 
@@ -417,12 +675,111 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
         <a class="btn btn-outline" target="_blank" href="https://wa.me/917879444555">WhatsApp Us</a>
       </div>
     </div>
-    <div class="quick-card">
-      <h3>What We Do</h3>
-      <ul class="quick-list">
-        <li>🏠 Residential Properties</li><li>🏢 Commercial Properties</li>
-        <li>🔑 Buying &amp; Selling</li><li>📋 Rental &amp; Leasing</li><li>🤝 Property Assistance</li><li>👨🏻‍⚖️ Legal Assistance</li>
+    <div class="quick-card services-slider" id="servicesSlider" aria-label="LLDC property services">
+      <div class="services-slider-head">
+        <div>
+          <span class="services-kicker">LLDC SERVICE DESK</span>
+          <h3>What We Do</h3>
+        </div>
+        <span class="service-live"><span class="service-live-dot" aria-hidden="true"></span> LIVE</span>
+      </div>
+
+      <ul class="service-list" role="tablist" aria-label="Explore our services">
+        <li class="service-item active">
+          <button class="service-tab" type="button" role="tab" aria-selected="true" aria-expanded="true" aria-controls="service-detail-1">
+            <span class="service-icon" aria-hidden="true">🏠</span>
+            <span class="service-title">Residential Properties</span>
+            <span class="service-number">01</span>
+          </button>
+          <div class="service-desc" id="service-detail-1" role="tabpanel" aria-hidden="false">
+            <div class="service-desc-inner">
+              <p>Homes, apartments and villas for rent, purchase or sale—matched to your preferred location and budget.</p>
+              <a href="#properties">View residential options <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <span class="service-progress" aria-hidden="true"></span>
+        </li>
+
+        <li class="service-item">
+          <button class="service-tab" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-controls="service-detail-2">
+            <span class="service-icon" aria-hidden="true">🏢</span>
+            <span class="service-title">Commercial Properties</span>
+            <span class="service-number">02</span>
+          </button>
+          <div class="service-desc" id="service-detail-2" role="tabpanel" aria-hidden="true">
+            <div class="service-desc-inner">
+              <p>Offices, shops and workspaces for rent, lease, purchase or sale across Pune’s key business locations.</p>
+              <a href="#properties">Explore commercial spaces <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <span class="service-progress" aria-hidden="true"></span>
+        </li>
+
+        <li class="service-item">
+          <button class="service-tab" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-controls="service-detail-3">
+            <span class="service-icon" aria-hidden="true">🔑</span>
+            <span class="service-title">Buying &amp; Selling</span>
+            <span class="service-number">03</span>
+          </button>
+          <div class="service-desc" id="service-detail-3" role="tabpanel" aria-hidden="true">
+            <div class="service-desc-inner">
+              <p>Support with property search, listing, site visits, negotiations and transaction coordination from start to finish.</p>
+              <a href="#requirements">Share your requirement <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <span class="service-progress" aria-hidden="true"></span>
+        </li>
+
+        <li class="service-item">
+          <button class="service-tab" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-controls="service-detail-4">
+            <span class="service-icon" aria-hidden="true">📋</span>
+            <span class="service-title">Rental &amp; Leasing</span>
+            <span class="service-number">04</span>
+          </button>
+          <div class="service-desc" id="service-detail-4" role="tabpanel" aria-hidden="true">
+            <div class="service-desc-inner">
+              <p>Tenant and owner assistance with matching, visits, rent terms, agreements and smooth possession coordination.</p>
+              <a href="#requirements">Send a rental enquiry <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <span class="service-progress" aria-hidden="true"></span>
+        </li>
+
+        <li class="service-item">
+          <button class="service-tab" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-controls="service-detail-5">
+            <span class="service-icon" aria-hidden="true">🤝</span>
+            <span class="service-title">Property Assistance</span>
+            <span class="service-number">05</span>
+          </button>
+          <div class="service-desc" id="service-detail-5" role="tabpanel" aria-hidden="true">
+            <div class="service-desc-inner">
+              <p>Personal guidance from understanding your requirement and shortlisting options to follow-up and finalization.</p>
+              <a href="#contact">Talk with our team <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <span class="service-progress" aria-hidden="true"></span>
+        </li>
+
+        <li class="service-item">
+          <button class="service-tab" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-controls="service-detail-6">
+            <span class="service-icon" aria-hidden="true">⚖️</span>
+            <span class="service-title">Legal Assistance</span>
+            <span class="service-number">06</span>
+          </button>
+          <div class="service-desc" id="service-detail-6" role="tabpanel" aria-hidden="true">
+            <div class="service-desc-inner">
+              <p>Support coordinating document checks, agreements, registration processes and property-related legal guidance.</p>
+              <a href="#contact">Ask for assistance <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <span class="service-progress" aria-hidden="true"></span>
+        </li>
       </ul>
+
+      <div class="services-slider-foot">
+        <span><span class="service-swipe" aria-hidden="true">↕</span> Auto-previewing services</span>
+        <span>Tap any service</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1096,5 +1453,88 @@ document.querySelectorAll('.req-form').forEach(function(form){
 })();
 </script>
 
+
+<script>
+(function(){
+  var slider=document.getElementById('servicesSlider');
+  if(!slider) return;
+
+  var items=Array.prototype.slice.call(slider.querySelectorAll('.service-item'));
+  var tabs=Array.prototype.slice.call(slider.querySelectorAll('.service-tab'));
+  var current=0;
+  var timer=null;
+  var interval=4600;
+  var reduceMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function activate(index,moveFocus){
+    current=(index+items.length)%items.length;
+    items.forEach(function(item,i){
+      var active=i===current;
+      item.classList.toggle('active',active);
+      var tab=item.querySelector('.service-tab');
+      var panel=item.querySelector('.service-desc');
+      tab.setAttribute('aria-selected',active?'true':'false');
+      tab.setAttribute('aria-expanded',active?'true':'false');
+      tab.setAttribute('tabindex',active?'0':'-1');
+      panel.setAttribute('aria-hidden',active?'false':'true');
+    });
+
+    var progress=items[current].querySelector('.service-progress');
+    if(progress){
+      progress.style.animation='none';
+      void progress.offsetWidth;
+      progress.style.animation='';
+    }
+    if(moveFocus) tabs[current].focus();
+  }
+
+  function stop(){
+    if(timer){window.clearInterval(timer);timer=null}
+    slider.classList.add('is-paused');
+  }
+
+  function start(){
+    if(reduceMotion || document.hidden) return;
+    stop();
+    slider.classList.remove('is-paused');
+    timer=window.setInterval(function(){activate(current+1,false)},interval);
+  }
+
+  tabs.forEach(function(tab,index){
+    tab.addEventListener('click',function(){
+      activate(index,false);
+      start();
+    });
+    tab.addEventListener('keydown',function(event){
+      var next=null;
+      if(event.key==='ArrowDown' || event.key==='ArrowRight') next=index+1;
+      if(event.key==='ArrowUp' || event.key==='ArrowLeft') next=index-1;
+      if(event.key==='Home') next=0;
+      if(event.key==='End') next=items.length-1;
+      if(next!==null){
+        event.preventDefault();
+        activate(next,true);
+        stop();
+      }
+    });
+  });
+
+  slider.addEventListener('mouseenter',stop);
+  slider.addEventListener('mouseleave',start);
+  slider.addEventListener('focusin',stop);
+  slider.addEventListener('focusout',function(){
+    window.setTimeout(function(){
+      if(!slider.contains(document.activeElement)) start();
+    },0);
+  });
+  slider.addEventListener('touchstart',stop,{passive:true});
+  slider.addEventListener('touchend',function(){window.setTimeout(start,900)},{passive:true});
+  document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
+  window.addEventListener('pagehide',stop);
+
+  activate(0,false);
+  start();
+})();
+</script>
 </body>
 </html>
