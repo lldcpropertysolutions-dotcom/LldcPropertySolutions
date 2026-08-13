@@ -107,7 +107,7 @@ document.querySelectorAll('.req-form').forEach(function(form){
   var timer=null;
   var interval=4600;
   var reduceMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var mobileStable=window.matchMedia && window.matchMedia('(max-width: 700px)');
+  var mobileStable=window.matchMedia && window.matchMedia('(max-width: 850px)');
 
   function activate(index,moveFocus){
     current=(index+items.length)%items.length;
@@ -216,7 +216,7 @@ document.querySelectorAll('.req-form').forEach(function(form){
   var progress=document.getElementById('ourProgressBar');
   var stage=document.querySelector('.our-service-stage');
   if(!stage || !content || !tabs.length) return;
-  var active=0,timer=null,reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches,mobileStable=window.matchMedia&&window.matchMedia('(max-width: 700px)');
+  var active=0,timer=null,reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches,mobileStable=window.matchMedia&&window.matchMedia('(max-width: 850px)');
   function render(index){
     active=index;var item=services[index];
     tabs.forEach(function(tab,i){tab.classList.toggle('active',i===index);tab.setAttribute('aria-selected',i===index?'true':'false');tab.setAttribute('tabindex',i===index?'0':'-1')});
