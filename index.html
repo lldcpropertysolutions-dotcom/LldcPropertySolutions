@@ -667,7 +667,15 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
 .our-degrees{position:relative;z-index:2;margin:10px 0 0;color:#d8e2ea;font-size:.94rem;font-weight:750;letter-spacing:.08em}
 .our-legal-note{position:relative;z-index:2;margin:24px 0;color:#c9d5df;line-height:1.7}
 .our-consult-btn{position:relative;z-index:2;display:inline-flex;align-items:center;gap:10px;padding:13px 17px;border:1px solid rgba(240,207,121,.6);border-radius:12px;color:#fff;background:rgba(255,255,255,.06);font-weight:850;transition:.25s ease}
+.our-consult-btn{font:inherit;cursor:pointer}
 .our-consult-btn:hover,.our-consult-btn:focus-visible{outline:none;color:#071522;background:#f0cf79;transform:translateY(-2px)}
+.our-consult-btn .our-consult-arrow{transition:transform .25s ease}.our-consult-btn[aria-expanded="true"] .our-consult-arrow{transform:rotate(180deg)}
+.our-contact-options{position:relative;z-index:3;display:grid;gap:9px;margin-top:13px;max-width:340px;animation:ourEnter .3s ease both}
+.our-contact-options[hidden]{display:none}
+.our-contact-link{display:flex;align-items:center;gap:11px;padding:11px 13px;border:1px solid rgba(240,207,121,.38);border-radius:12px;color:#fff;background:rgba(255,255,255,.08);transition:.22s ease}
+.our-contact-link:hover,.our-contact-link:focus-visible{outline:none;color:#071522;background:#f0cf79;transform:translateX(3px)}
+.our-contact-icon{display:grid;place-items:center;width:34px;height:34px;flex:none;border-radius:9px;background:rgba(255,255,255,.1)}
+.our-contact-copy{display:grid;gap:2px;min-width:0}.our-contact-copy small{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;opacity:.78}.our-contact-copy strong{font-size:.88rem;overflow-wrap:anywhere}
 .our-legal-details{position:relative;z-index:1;padding:35px 38px 32px}
 .our-details-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding-bottom:20px;border-bottom:1px solid #e6e1d4}
 .our-details-top h3{margin:0 0 7px;color:#0b1f35;font-size:1.28rem}.our-details-top p{margin:0;color:#657383;line-height:1.6}
@@ -851,11 +859,20 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
     <div class="our-legal-panel" aria-labelledby="ourLegalTitle">
       <div class="our-legal-profile">
         <div class="our-legal-badge" aria-hidden="true">⚖️</div>
-        <p class="our-legal-eyebrow">Legal Services · First Row</p>
         <h3 id="ourLegalTitle">Adv. Prasad Rajendra Bade</h3>
         <p class="our-degrees">B.A. · B.B.A. · L.L.M.</p>
         <p class="our-legal-note">Professional legal guidance for property documentation, agreements, registration, and consultation.</p>
-        <a class="our-consult-btn" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20would%20like%20a%20legal%20consultation." target="_blank" rel="noopener">Request Legal Consultation <span aria-hidden="true">→</span></a>
+        <button class="our-consult-btn" id="legalContactToggle" type="button" aria-expanded="false" aria-controls="legalContactOptions">Request Legal Consultation <span class="our-consult-arrow" aria-hidden="true">⌄</span></button>
+        <div class="our-contact-options" id="legalContactOptions" hidden>
+          <a class="our-contact-link" href="tel:+918446446007">
+            <span class="our-contact-icon" aria-hidden="true">📞</span>
+            <span class="our-contact-copy"><small>Call Prasad Sir</small><strong>8446446007</strong></span>
+          </a>
+          <a class="our-contact-link" href="mailto:Adv.prasadbade@gmail.com">
+            <span class="our-contact-icon" aria-hidden="true">✉️</span>
+            <span class="our-contact-copy"><small>Email Prasad Sir</small><strong>Adv.prasadbade@gmail.com</strong></span>
+          </a>
+        </div>
       </div>
 
       <div class="our-legal-details">
@@ -881,10 +898,10 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
           <div>
             <h4>Associated advocate network</h4>
             <ul class="our-city-list">
-              <li>Dhananjay Ashtekar · Pune</li>
-              <li>Ajinkya Jaybhave · Mumbai</li>
-              <li>Jaybhave &amp; Associates · Nashik</li>
-              <li>Subhash Malani · Aurangabad</li>
+              <li>Adv. (Dr) S.E Avhad · Pune</li>
+              <li>Adv. Ajinkya Jaybhave · Mumbai</li>
+              <li>Adv. Jaybhave &amp; Associates · Nashik</li>
+              <li>Adv. Subhash Malani · Aurangabad</li>
             </ul>
             <p class="our-network-note">City-wise legal coordination is subject to the nature and location of each matter.</p>
           </div>
@@ -1648,6 +1665,24 @@ document.querySelectorAll('.req-form').forEach(function(form){
 
   activate(0,false);
   start();
+})();
+</script>
+
+<script>
+(function(){
+  var toggle=document.getElementById('legalContactToggle');
+  var options=document.getElementById('legalContactOptions');
+  if(toggle&&options){
+    toggle.addEventListener('click',function(){
+      var opening=toggle.getAttribute('aria-expanded')!=='true';
+      toggle.setAttribute('aria-expanded',opening?'true':'false');
+      options.hidden=!opening;
+      if(opening){
+        var firstLink=options.querySelector('a');
+        if(firstLink) window.setTimeout(function(){firstLink.focus()},50);
+      }
+    });
+  }
 })();
 </script>
 
