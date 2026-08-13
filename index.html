@@ -339,7 +339,25 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
 .req-form input,.req-form select,.req-form textarea{background:#fff!important;color:#243b53!important;border-color:#cfd9e3!important}.req-form select option{background:#fff!important;color:#243b53!important}
 .photo-overlay{background:linear-gradient(180deg,transparent 42%,rgba(16,42,67,.76))!important}.photo-badge{background:rgba(255,255,255,.90)!important;color:#102a43!important}
 .brand-watermark span{background:rgba(255,255,255,.82)!important;color:rgba(16,42,67,.65)!important}.map-button{background:#102a43!important;color:#fff!important}
-.contact-link,.office-card a{color:#243b53!important}footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display:none!important}
+.contact-link,.office-card a{color:#243b53!important}
+.office-card .map-button{
+  position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  background:#102a43!important;color:#fff!important;border-color:#284866!important;
+  box-shadow:0 10px 24px rgba(16,42,67,.16);transition:transform .28s ease,box-shadow .28s ease,background-color .28s ease
+}
+.office-card .map-button:before{
+  content:"";position:absolute;z-index:-1;inset:-60% auto -60% -45%;width:32%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+  transform:skewX(-18deg);animation:mapSoftShine 4.8s ease-in-out infinite
+}
+.office-card .map-button:hover,.office-card .map-button:focus-visible{
+  color:#fff!important;background:#173b5b!important;transform:translateY(-2px);box-shadow:0 14px 30px rgba(16,42,67,.22);outline:none
+}
+.office-card .map-pin{display:inline-block;filter:saturate(.65);animation:mapPinPulse 2.8s ease-in-out infinite}
+@keyframes mapSoftShine{0%,62%{left:-45%}100%{left:125%}}
+@keyframes mapPinPulse{0%,100%{transform:translateY(0);opacity:.84}50%{transform:translateY(-2px);opacity:1}}
+@media(prefers-reduced-motion:reduce){.office-card .map-button:before,.office-card .map-pin{animation:none!important}}
+footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display:none!important}
 @media(max-width:850px){nav{background:#fff!important}}
 </style>
 
@@ -1483,11 +1501,7 @@ h1,.section-head h2,.section-heading h2,.card h3,.quick-card h3,.about-box h3,.p
         <h3>Our Office</h3>
         <p><strong>LLDC Property Solutions</strong></p>
         <p>4, Anant Manohar Apartment,<br>Paud Rd, Left Bhusari Colony,<br>Right Bhusari Colony, Kothrud,<br>Pune, Maharashtra 411038</p>
-        <div class="contact-lines">
-          <p>📞 <a href="tel:+917447699197">7447-699-197</a></p>
-          <p>💬 <a href="https://wa.me/917447699197" target="_blank" rel="noopener">WhatsApp: 7447-699-197</a></p>
-           </div>
-        <a class="map-button" href="https://maps.app.goo.gl/X3Ku3aSke16KZWF88" target="_blank" rel="noopener">📍 Open Office Location in Google Maps</a>
+        <a class="map-button" href="https://maps.app.goo.gl/X3Ku3aSke16KZWF88" target="_blank" rel="noopener"><span class="map-pin" aria-hidden="true">📍</span><span>Open Office Location in Google Maps</span></a>
       </div>
     </div>
   </div>
