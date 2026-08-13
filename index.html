@@ -7,6 +7,8 @@
   <!-- Live refresh: animated What We Do service slider added 2026-08-12 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com; font-src 'self' data:; connect-src 'none'; media-src 'none'; worker-src 'none'; form-action 'self'; upgrade-insecure-requests">
 <meta name="description" content="LLDC Property Solutions - Residential and commercial property solutions for sale, rent, purchase and leasing in Pune.">
 <title>LLDC Property Solutions | Your Property, Our Priority</title>
 
@@ -717,13 +719,42 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
 @media(max-width:640px){.our-services{padding:72px 0}.our-legal-panel,.our-service-stage{border-radius:20px}.our-legal-details{padding:25px 20px}.our-legal-columns{grid-template-columns:1fr}.our-details-top{display:block}.our-live-chip{width:max-content;margin-top:14px}.our-service-stage{padding:18px}.our-stage-head{align-items:flex-start}.our-counter{margin-top:7px}.our-service-display{min-height:350px;padding:28px 23px}.our-progress-track{left:23px;right:23px}.our-service-tabs{grid-template-columns:repeat(2,1fr)}}
 @media(prefers-reduced-motion:reduce){.our-services *,.our-services *:before,.our-services *:after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
 </style>
+
+<style>
+/* Mobile stability: preserve tap interactions without automatic page movement. */
+@media(max-width:700px){
+  html{scroll-behavior:auto!important}
+  body{overflow-x:hidden}
+  .reveal{transform:none!important;transition:opacity .28s ease!important}
+  .property-tab-callout .tap-icon,
+  .property-section .tabs:not(.has-open-tab) .tab,
+  .property-section .tab::after,
+  .hero .quick-card.services-slider:before,
+  .services-slider:after,
+  .service-live-dot,
+  .service-progress,
+  .our-legal-profile:after,
+  .our-live-chip:before,
+  .our-service-display:before,
+  .our-progress-bar,
+  .office-card .map-button:before,
+  .office-card .map-pin{animation:none!important}
+  .property-section .tab:hover,
+  .property-section .tab.active{transform:none!important}
+  .service-tab,.service-icon,.service-desc{transition:none!important}
+  .service-item.active .service-icon{transform:none!important}
+  .our-display-content{animation:none!important}
+  .our-service-display{min-height:390px}
+}
+@media(max-width:420px){.our-service-display{min-height:420px}}
+</style>
 </head>
 <body>
 
 <header>
   <div class="container nav">
     <a class="logo" href="#home">LLDC <span>Property Solutions</span></a>
-    <button class="menu" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+    <button class="menu" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
     <nav>
       <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a>
       <a href="#properties">Properties</a><a href="#requirements">Requirements</a><a href="#updates">News/Updates</a><a href="#property-visuals">Visuals</a><a href="#why">Why Us</a><a href="#contact">Contact</a>
@@ -740,7 +771,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
       <p>LLDC Property Solutions helps clients buy, sell, rent and lease residential and commercial properties with clear communication and personalized support.</p>
       <div class="actions">
         <a class="btn btn-gold" href="tel:+917879444555">Call 7879-444-555</a>
-        <a class="btn btn-outline" target="_blank" href="https://wa.me/917879444555">WhatsApp Us</a>
+        <a class="btn btn-outline" target="_blank" href="https://wa.me/917879444555" rel="noopener noreferrer">WhatsApp Us</a>
       </div>
     </div>
     <div class="quick-card services-slider" id="servicesSlider" aria-label="LLDC property services">
@@ -986,14 +1017,14 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             <p class="listing-note">Contact LLDC Property Solutions to arrange a site visit.</p>
             <div class="listing-actions">
               <a class="btn btn-gold" href="tel:+917879444555">Call Now</a>
-              <a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%201%20BHK%20flat%20for%20sale%20in%20Warje%20Malwadi%20at%20%E2%82%B947%20lakh.">WhatsApp</a>
+              <a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%201%20BHK%20flat%20for%20sale%20in%20Warje%20Malwadi%20at%20%E2%82%B947%20lakh.">WhatsApp</a>
             </div>
           </div>
         </article>
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media rental-poster"><img src="assets/properties/nyati-ebony-undri-2bhk-sale.jpg" alt="2 BHK flat for sale at Nyati Ebony in Undri" loading="lazy"></div>
+          <div class="listing-media rental-poster"><img src="assets/properties/nyati-ebony-undri-2bhk-sale.jpg" alt="2 BHK flat for sale at Nyati Ebony in Undri" loading="lazy" width="1254" height="1254" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">FOR SALE</span>
             <h3>2 BHK at Nyati Ebony</h3>
@@ -1006,13 +1037,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             </div>
             <div class="listing-price">₹60 Lakh</div>
             <p class="listing-note">Unobstructed city view • Prime Undri location • Investment opportunity</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20flat%20for%20sale%20at%20Nyati%20Ebony%2C%20Undri%2C%20at%20%E2%82%B960%20lakh.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20flat%20for%20sale%20at%20Nyati%20Ebony%2C%20Undri%2C%20at%20%E2%82%B960%20lakh.">WhatsApp</a></div>
           </div>
         </article>
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media rental-poster"><img src="assets/properties/eklavya-college-3bhk-sale.jpg" alt="Fully furnished 3 BHK flat for sale near Eklavya College" loading="lazy"></div>
+          <div class="listing-media rental-poster"><img src="assets/properties/eklavya-college-3bhk-sale.jpg" alt="Fully furnished 3 BHK flat for sale near Eklavya College" loading="lazy" width="1149" height="1369" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">FOR SALE</span>
             <h3>3 BHK Fully Furnished Flat</h3>
@@ -1025,7 +1056,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             </div>
             <div class="listing-price">₹2.51 Crore</div>
             <p class="listing-note">Price negotiable • 5-year-old property • All amenities</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%20fully%20furnished%203%20BHK%20flat%20for%20sale%20near%20Eklavya%20College%20at%20%E2%82%B92.51%20crore.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%20fully%20furnished%203%20BHK%20flat%20for%20sale%20near%20Eklavya%20College%20at%20%E2%82%B92.51%20crore.">WhatsApp</a></div>
           </div>
         </article>
       </div>
@@ -1049,7 +1080,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             <div class="listing-price">₹16,000 / month</div>
             <p class="listing-note"><strong>Deposit:</strong> ₹25,000</p>
             <p class="listing-note"><strong>Preferred:</strong> Family / Working professional</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20Kingston%20Elysia%20rental%20at%20%E2%82%B916%2C000%20per%20month.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20Kingston%20Elysia%20rental%20at%20%E2%82%B916%2C000%20per%20month.">WhatsApp</a></div>
           </div>
         </article>
 
@@ -1069,7 +1100,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             <div class="listing-price">₹25,000 / month</div>
             <p class="listing-note"><strong>Deposit:</strong> ₹50,000 &nbsp; • &nbsp; Rent non-negotiable</p>
             <p class="listing-note"><strong>Preferred:</strong> Families only &nbsp; • &nbsp; Immediate possession &nbsp; • &nbsp; Brokerage applicable</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20semi-furnished%20flat%20in%20Hinjewadi%20at%20%E2%82%B925%2C000%20per%20month.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20semi-furnished%20flat%20in%20Hinjewadi%20at%20%E2%82%B925%2C000%20per%20month.">WhatsApp</a></div>
           </div>
         </article>
 
@@ -1089,13 +1120,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             <div class="listing-price">Family: ₹30,000 &nbsp; | &nbsp; Office: ₹35,000</div>
             <p class="listing-note"><strong>Deposit:</strong> 3 months &nbsp; • &nbsp; Rent negotiable</p>
             <p class="listing-note"><strong>Suitable for:</strong> Family; office use also considered</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20unfurnished%20property%20at%20Right%20Bhusari%20Colony%2C%20Kothrud.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20unfurnished%20property%20at%20Right%20Bhusari%20Colony%2C%20Kothrud.">WhatsApp</a></div>
           </div>
         </article>
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media rental-poster"><img src="assets/properties/venkatesh-classic-handewadi.jpg" alt="2 BHK semi-furnished flat for rent at Venkatesh Classic, Handewadi Hadapsar" loading="lazy"></div>
+          <div class="listing-media rental-poster"><img src="assets/properties/venkatesh-classic-handewadi.jpg" alt="2 BHK semi-furnished flat for rent at Venkatesh Classic, Handewadi Hadapsar" loading="lazy" width="1149" height="1369" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">NEW RENTAL</span>
             <h3>2 BHK at Venkatesh Classic</h3>
@@ -1109,7 +1140,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             <div class="listing-price">₹17,000 / month</div>
             <p class="listing-note"><strong>Deposit:</strong> 2 months' rent &nbsp; • &nbsp; Includes maintenance &nbsp; • &nbsp; Negotiable</p>
             <p class="listing-note"><strong>Preferred:</strong> Family or working professionals</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20semi-furnished%20flat%20at%20Venkatesh%20Classic%2C%20Handewadi%20Hadapsar%2C%20at%20%E2%82%B917%2C000%20per%20month.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20semi-furnished%20flat%20at%20Venkatesh%20Classic%2C%20Handewadi%20Hadapsar%2C%20at%20%E2%82%B917%2C000%20per%20month.">WhatsApp</a></div>
           </div>
         </article>
 
@@ -1117,7 +1148,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media rental-poster"><img src="assets/properties/maan-hinjewadi-2bhk.jpg" alt="2 BHK flat for rent in Maan, Hinjewadi" loading="lazy"></div>
+          <div class="listing-media rental-poster"><img src="assets/properties/maan-hinjewadi-2bhk.jpg" alt="2 BHK flat for rent in Maan, Hinjewadi" loading="lazy" width="1024" height="1536" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">AFFORDABLE RENTAL</span>
             <h3>2 BHK Flat in Maan, Hinjewadi</h3>
@@ -1131,13 +1162,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             <div class="listing-price">₹16,000 / month</div>
             <p class="listing-note"><strong>Deposit:</strong> ₹40,000 refundable</p>
             <p class="listing-note">CCTV, water supply, landscaped garden, children's play area and fire safety</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20flat%20at%20Maan%2C%20Hinjewadi%2C%20at%20%E2%82%B916%2C000%20per%20month.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20flat%20at%20Maan%2C%20Hinjewadi%2C%20at%20%E2%82%B916%2C000%20per%20month.">WhatsApp</a></div>
           </div>
         </article>
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media rental-poster"><img src="assets/properties/sb-road-2bhk.jpg" alt="Fully furnished 2 BHK flat for rent behind Shell Petrol Pump on SB Road" loading="lazy"></div>
+          <div class="listing-media rental-poster"><img src="assets/properties/sb-road-2bhk.jpg" alt="Fully furnished 2 BHK flat for rent behind Shell Petrol Pump on SB Road" loading="lazy" width="1086" height="1448" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">FULLY FURNISHED</span>
             <h3>2 BHK Flat on S.B. Road</h3>
@@ -1150,13 +1181,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             </div>
             <div class="listing-price">₹50,000 / month</div>
             <p class="listing-note">Rent negotiable &nbsp; • &nbsp; Family-friendly property</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%20fully%20furnished%202%20BHK%20flat%20behind%20Shell%20Petrol%20Pump%2C%20S.B.%20Road%2C%20at%20%E2%82%B950%2C000%20per%20month.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%20fully%20furnished%202%20BHK%20flat%20behind%20Shell%20Petrol%20Pump%2C%20S.B.%20Road%2C%20at%20%E2%82%B950%2C000%20per%20month.">WhatsApp</a></div>
           </div>
         </article>
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media rental-poster"><img src="assets/properties/model-colony-2bhk.jpg" alt="Fully furnished 2 BHK flat for rent behind Kedareshwar Temple, Model Colony" loading="lazy"></div>
+          <div class="listing-media rental-poster"><img src="assets/properties/model-colony-2bhk.jpg" alt="Fully furnished 2 BHK flat for rent behind Kedareshwar Temple, Model Colony" loading="lazy" width="1024" height="1536" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">FULLY FURNISHED</span>
             <h3>2 BHK Flat in Model Colony</h3>
@@ -1169,13 +1200,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             </div>
             <div class="listing-price">₹50,000 / month</div>
             <p class="listing-note">Rent negotiable &nbsp; • &nbsp; Ideal for a family &nbsp; • &nbsp; Peaceful prime location</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%20fully%20furnished%202%20BHK%20flat%20behind%20Kedareshwar%20Temple%2C%20Model%20Colony%2C%20at%20%E2%82%B950%2C000%20per%20month.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%20fully%20furnished%202%20BHK%20flat%20behind%20Kedareshwar%20Temple%2C%20Model%20Colony%2C%20at%20%E2%82%B950%2C000%20per%20month.">WhatsApp</a></div>
           </div>
         </article>
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media rental-poster"><img src="assets/properties/baner-mahabaleshwar-hotel-3bhk.jpg" alt="3 BHK semi-furnished flat for rent in Baner near Mahabaleshwar Hotel" loading="lazy"></div>
+          <div class="listing-media rental-poster"><img src="assets/properties/baner-mahabaleshwar-hotel-3bhk.jpg" alt="3 BHK semi-furnished flat for rent in Baner near Mahabaleshwar Hotel" loading="lazy" width="1024" height="1536" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">SPACIOUS 3 BHK</span>
             <h3>3 BHK Semi-furnished Flat in Baner</h3>
@@ -1188,13 +1219,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             </div>
             <div class="listing-price">₹40,000 / month</div>
             <p class="listing-note">Rent negotiable &nbsp; • &nbsp; Suitable for working bachelors or family</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%203%20BHK%20semi-furnished%20flat%20near%20Mahabaleshwar%20Hotel%2C%20Baner%2C%20at%20%E2%82%B940%2C000%20per%20month.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%203%20BHK%20semi-furnished%20flat%20near%20Mahabaleshwar%20Hotel%2C%20Baner%2C%20at%20%E2%82%B940%2C000%20per%20month.">WhatsApp</a></div>
           </div>
         </article>
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media rental-poster"><img src="assets/properties/baner-road-3bhk.jpg" alt="Fully furnished 3 BHK flat for rent behind Ranka Jewellers on Baner Road" loading="lazy"></div>
+          <div class="listing-media rental-poster"><img src="assets/properties/baner-road-3bhk.jpg" alt="Fully furnished 3 BHK flat for rent behind Ranka Jewellers on Baner Road" loading="lazy" width="1086" height="1448" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">PREMIUM FAMILY HOME</span>
             <h3>3 BHK Fully Furnished Flat on Baner Road</h3>
@@ -1208,13 +1239,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             <div class="listing-price">₹55,000 / month</div>
             <p class="listing-note">Rent negotiable &nbsp; • &nbsp; Fully furnished except washing machine and TV</p>
             <p class="listing-note">Solar facility, inverter backup, ample sunlight and ventilation</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%20fully%20furnished%203%20BHK%20flat%20behind%20Ranka%20Jewellers%2C%20Baner%20Road%2C%20at%20%E2%82%B955%2C000%20per%20month.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%20fully%20furnished%203%20BHK%20flat%20behind%20Ranka%20Jewellers%2C%20Baner%20Road%2C%20at%20%E2%82%B955%2C000%20per%20month.">WhatsApp</a></div>
           </div>
         </article>
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media rental-poster"><img src="assets/properties/kothrud-wanaz-2bhk.jpg" alt="2 BHK semi-furnished flat for rent in Kothrud Wanaz" loading="lazy"></div>
+          <div class="listing-media rental-poster"><img src="assets/properties/kothrud-wanaz-2bhk.jpg" alt="2 BHK semi-furnished flat for rent in Kothrud Wanaz" loading="lazy" width="1054" height="1492" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">KOTHRUD RENTAL</span>
             <h3>2 BHK Semi-furnished Flat in Kothrud</h3>
@@ -1227,7 +1258,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             </div>
             <div class="listing-price">₹45,000 / month</div>
             <p class="listing-note">Rent negotiable &nbsp; • &nbsp; Suitable for family, working professionals or bachelors</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20semi-furnished%20flat%20at%20Wanaz%2C%20Kothrud%2C%20at%20%E2%82%B945%2C000%20per%20month.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%202%20BHK%20semi-furnished%20flat%20at%20Wanaz%2C%20Kothrud%2C%20at%20%E2%82%B945%2C000%20per%20month.">WhatsApp</a></div>
           </div>
         </article>
       </div>
@@ -1246,7 +1277,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
       <div class="listing-grid commercial-listings">
 <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media"><img src="assets/properties/fc-road-1rk-office.jpg" alt="1 RK property for rent near Hotel Roopali on FC Road" loading="lazy"></div>
+          <div class="listing-media"><img src="assets/properties/fc-road-1rk-office.jpg" alt="1 RK property for rent near Hotel Roopali on FC Road" loading="lazy" width="1254" height="1254" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">OFFICE FOR RENT</span>
             <h3>1 RK for Office Use</h3>
@@ -1260,13 +1291,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             <div class="listing-price">₹25,000 / month</div>
             <p class="listing-note">Rent negotiable &nbsp; • &nbsp; Brokerage applicable &nbsp; • &nbsp; Vacant and ready to occupy</p>
             <p class="listing-note"><strong>Ideal for:</strong> Office, consultancy or startup</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%201%20RK%20property%20for%20office%20use%20near%20Hotel%20Roopali%2C%20F.C.%20Road%2C%20at%20%E2%82%B925%2C000%20per%20month.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%201%20RK%20property%20for%20office%20use%20near%20Hotel%20Roopali%2C%20F.C.%20Road%2C%20at%20%E2%82%B925%2C000%20per%20month.">WhatsApp</a></div>
           </div>
         </article>
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media"><img src="assets/properties/bhusale-nagar-office.jpg" alt="Fully furnished office for rent at Bhusale Nagar" loading="lazy"></div>
+          <div class="listing-media"><img src="assets/properties/bhusale-nagar-office.jpg" alt="Fully furnished office for rent at Bhusale Nagar" loading="lazy" width="1149" height="1369" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">OFFICE FOR RENT</span>
             <h3>Fully Furnished Office — Bhusale Nagar</h3>
@@ -1274,13 +1305,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             <div class="listing-specs"><div class="listing-spec">📐 <strong>1,500 Sq.ft.</strong>Office area</div><div class="listing-spec">🪑 <strong>Fully Furnished</strong>Move-in ready</div><div class="listing-spec">🛗 <strong>Lift &amp; Security</strong>Building facilities</div><div class="listing-spec">🚗 <strong>Parking</strong>Available</div></div>
             <div class="listing-price">₹1.50 Lakh / month</div>
             <p class="listing-note">Rent negotiable • Premium professional environment</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%201%2C500%20sq.ft.%20fully%20furnished%20office%20at%20Bhusale%20Nagar.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%201%2C500%20sq.ft.%20fully%20furnished%20office%20at%20Bhusale%20Nagar.">WhatsApp</a></div>
           </div>
         </article>
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media"><img src="assets/properties/sb-road-icc-office.jpg" alt="3 BHK converted office for rent near ICC Towers on SB Road" loading="lazy"></div>
+          <div class="listing-media"><img src="assets/properties/sb-road-icc-office.jpg" alt="3 BHK converted office for rent near ICC Towers on SB Road" loading="lazy" width="1086" height="1448" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">PREMIUM OFFICE</span>
             <h3>3 BHK Converted Office — SB Road</h3>
@@ -1288,13 +1319,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             <div class="listing-specs"><div class="listing-spec">📐 <strong>1,650 Sq.ft.</strong>Spacious office</div><div class="listing-spec">🏢 <strong>6th Floor</strong>Higher floor</div><div class="listing-spec">🪑 <strong>Fully Furnished</strong>Move-in ready</div><div class="listing-spec">🚗 <strong>Car Parking</strong>Available</div></div>
             <div class="listing-price">₹65,000 / month</div>
             <p class="listing-note"><strong>Deposit:</strong> 3 months' rent &nbsp; • &nbsp; Rent negotiable</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%201%2C650%20sq.ft.%20fully%20furnished%20office%20near%20ICC%20Towers%2C%20SB%20Road.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%201%2C650%20sq.ft.%20fully%20furnished%20office%20near%20ICC%20Towers%2C%20SB%20Road.">WhatsApp</a></div>
           </div>
         </article>
 
         <article class="listing-card">
           <div class="brand-watermark"><span>LLDC PROPERTY SOLUTIONS</span></div>
-          <div class="listing-media"><img src="assets/properties/konark-icon-magarpatta-office.jpg" alt="Furnished office for lease at Konark Icon Magarpatta" loading="lazy"></div>
+          <div class="listing-media"><img src="assets/properties/konark-icon-magarpatta-office.jpg" alt="Furnished office for lease at Konark Icon Magarpatta" loading="lazy" width="1054" height="1492" decoding="async"></div>
           <div class="listing-content">
             <span class="badge">OFFICE FOR LEASE</span>
             <h3>Furnished Office — Konark Icon</h3>
@@ -1303,7 +1334,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
             <div class="listing-price">₹1.45 Lakh / month + maintenance</div>
             <p class="listing-note"><strong>Deposit:</strong> 6 months' rent &nbsp; • &nbsp; <strong>Lock-in:</strong> 3 years &nbsp; • &nbsp; <strong>Lease:</strong> 5 years</p>
             <p class="listing-note">Brokerage applicable</p>
-            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%20furnished%20office%20for%20lease%20at%20Konark%20Icon%2C%20Magarpatta.">WhatsApp</a></div>
+            <div class="listing-actions"><a class="btn btn-gold" href="tel:+917879444555">Call Now</a><a class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer" href="https://wa.me/917879444555?text=Hello%20LLDC%2C%20I%20am%20interested%20in%20the%20furnished%20office%20for%20lease%20at%20Konark%20Icon%2C%20Magarpatta.">WhatsApp</a></div>
           </div>
         </article>
       </div>
@@ -1338,22 +1369,22 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
     </div>
     <div class="photo-grid">
       <div class="photo-tile">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" alt="Premium modern house" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" alt="Premium modern house" loading="lazy" width="1200" height="800" decoding="async">
         <div class="photo-badge">PREMIUM HOMES</div>
         <div class="photo-overlay"><div><h3>Modern Living</h3><p>Thoughtfully selected residential spaces</p></div></div>
       </div>
       <div class="photo-tile">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85" alt="Luxury villa exterior" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85" alt="Luxury villa exterior" loading="lazy" width="900" height="600" decoding="async">
         <div class="photo-badge">VILLAS</div>
         <div class="photo-overlay"><div><h3>Elegant Villas</h3><p>Comfort, space &amp; style</p></div></div>
               </div>
       <div class="photo-tile">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85" alt="Modern commercial building" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85" alt="Modern commercial building" loading="lazy" width="900" height="600" decoding="async">
         <div class="photo-badge">COMMERCIAL</div>
         <div class="photo-overlay"><div><h3>Modern Buildings</h3><p>Commercial opportunities</p></div></div>
               </div>
       <div class="photo-tile">
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85" alt="Architectural construction plans" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85" alt="Architectural construction plans" loading="lazy" width="900" height="600" decoding="async">
         <div class="photo-badge">CONSTRUCTION</div>
         <div class="photo-overlay"><div><h3>Built for Tomorrow</h3><p>Construction &amp; development</p></div></div>
       </div>
@@ -1395,13 +1426,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
       <h3>🏠 Sell Your Property</h3>
       <p>Want to sell your flat, house, plot or other property? Share the details with us.</p>
       <form class="req-form" data-type="For Sale">
-        <input name="name" placeholder="Your Name *" required>
-        <input name="phone" placeholder="Mobile Number *" required>
-        <input name="location" placeholder="Property Location *" required>
+        <input name="name" placeholder="Your Name *" required maxlength="120">
+        <input name="phone" placeholder="Mobile Number *" required maxlength="15" inputmode="tel" autocomplete="tel">
+        <input name="location" placeholder="Property Location *" required maxlength="120">
         <select name="propertyType" required><option value="">Property Type *</option><option>1 BHK</option><option>2 BHK</option><option>3 BHK</option><option>4 BHK+</option><option>House / Villa</option><option>Plot</option><option>Other</option></select>
-        <input name="area" placeholder="Area / Sq.ft">
-        <input name="price" placeholder="Expected Price">
-        <textarea name="message" placeholder="Additional details"></textarea>
+        <input name="area" placeholder="Area / Sq.ft" maxlength="120">
+        <input name="price" placeholder="Expected Price" maxlength="120">
+        <textarea name="message" placeholder="Additional details" maxlength="700"></textarea>
         <button class="submit-btn" type="submit">Send Requirement on WhatsApp</button>
       </form>
     </div>
@@ -1410,13 +1441,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
       <h3>🔑 Rental Requirement</h3>
       <p>Looking for a property on rent? Tell us your preferred location, budget and property type.</p>
       <form class="req-form" data-type="Rental Requirement">
-        <input name="name" placeholder="Your Name *" required>
-        <input name="phone" placeholder="Mobile Number *" required>
-        <input name="location" placeholder="Preferred Location *" required>
+        <input name="name" placeholder="Your Name *" required maxlength="120">
+        <input name="phone" placeholder="Mobile Number *" required maxlength="15" inputmode="tel" autocomplete="tel">
+        <input name="location" placeholder="Preferred Location *" required maxlength="120">
         <select name="propertyType" required><option value="">Property Type *</option><option>1 BHK</option><option>2 BHK</option><option>3 BHK</option><option>4 BHK+</option><option>Office</option><option>Shop</option><option>Other</option></select>
-        <input name="budget" placeholder="Monthly Budget">
-        <input name="parking" placeholder="Parking Requirement">
-        <textarea name="message" placeholder="Furnishing / tenant preference / other details"></textarea>
+        <input name="budget" placeholder="Monthly Budget" maxlength="120">
+        <input name="parking" placeholder="Parking Requirement" maxlength="120">
+        <textarea name="message" placeholder="Furnishing / tenant preference / other details" maxlength="700"></textarea>
         <button class="submit-btn" type="submit">Send Requirement on WhatsApp</button>
       </form>
     </div>
@@ -1425,13 +1456,13 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
       <h3>🔍 Property Purchase Requirement</h3>
       <p>Tell us what you want to purchase and we will help you find suitable options.</p>
       <form class="req-form" data-type="Purchase Requirement">
-        <input name="name" placeholder="Your Name *" required>
-        <input name="phone" placeholder="Mobile Number *" required>
-        <input name="location" placeholder="Preferred Location *" required>
+        <input name="name" placeholder="Your Name *" required maxlength="120">
+        <input name="phone" placeholder="Mobile Number *" required maxlength="15" inputmode="tel" autocomplete="tel">
+        <input name="location" placeholder="Preferred Location *" required maxlength="120">
         <select name="propertyType" required><option value="">Property Type *</option><option>1 BHK</option><option>2 BHK</option><option>3 BHK</option><option>4 BHK+</option><option>House / Villa</option><option>Plot</option><option>Commercial</option><option>Other</option></select>
-        <input name="budget" placeholder="Budget">
-        <input name="area" placeholder="Area / Sq.ft">
-        <textarea name="message" placeholder="Other purchase requirements"></textarea>
+        <input name="budget" placeholder="Budget" maxlength="120">
+        <input name="area" placeholder="Area / Sq.ft" maxlength="120">
+        <textarea name="message" placeholder="Other purchase requirements" maxlength="700"></textarea>
         <button class="submit-btn" type="submit">Send Requirement on WhatsApp</button>
       </form>
     </div>
@@ -1440,14 +1471,14 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
       <h3>📣 List Your Property — FREE</h3>
       <p><strong>No submission charge.</strong> Property owners can send their property details to LLDC for review and listing consideration.</p>
       <form class="req-form" data-type="Property Listing">
-        <input name="name" placeholder="Owner Name *" required>
-        <input name="phone" placeholder="Mobile Number *" required>
-        <input name="location" placeholder="Property Location *" required>
+        <input name="name" placeholder="Owner Name *" required maxlength="120">
+        <input name="phone" placeholder="Mobile Number *" required maxlength="15" inputmode="tel" autocomplete="tel">
+        <input name="location" placeholder="Property Location *" required maxlength="120">
         <select name="purpose" required><option value="">Property Purpose *</option><option>For Sale</option><option>For Rent</option><option>For Lease</option><option>Commercial</option></select>
         <select name="propertyType" required><option value="">Property Type *</option><option>1 BHK</option><option>2 BHK</option><option>3 BHK</option><option>4 BHK+</option><option>House / Villa</option><option>Plot</option><option>Office</option><option>Shop</option><option>Warehouse</option><option>Other</option></select>
-        <input name="area" placeholder="Area / Sq.ft">
-        <input name="price" placeholder="Expected Price / Rent">
-        <textarea name="message" placeholder="Property details, furnishing, parking, floor, photos available, etc."></textarea>
+        <input name="area" placeholder="Area / Sq.ft" maxlength="120">
+        <input name="price" placeholder="Expected Price / Rent" maxlength="120">
+        <textarea name="message" placeholder="Property details, furnishing, parking, floor, photos available, etc." maxlength="700"></textarea>
         <button class="submit-btn" type="submit">Submit Property on WhatsApp</button>
       </form>
       <p class="free-note">* Listing is subject to LLDC review, verification and availability. Submission is free.</p>
@@ -1467,7 +1498,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
         <h3>LLDC Property Solutions</h3>
         <a class="contact-link" href="tel:+917879444555">📞 7879-444-555</a>
         <a class="contact-link" href="mailto:lldcpropertysolutions@gmail.com">✉️ lldcpropertysolutions@gmail.com</a>
-        <a class="contact-link" target="_blank" href="https://wa.me/917879444555">💬 WhatsApp Us</a>
+        <a class="contact-link" target="_blank" href="https://wa.me/917879444555" rel="noopener noreferrer">💬 WhatsApp Us</a>
       </div>
       <div class="contact-box">
         <h3>What are you looking for?</h3>
@@ -1493,7 +1524,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
 <p>Leading with a client-first approach and a focus on practical, transparent property solutions.</p>
           <div class="owner-actions">
             <a class="btn btn-gold" href="tel:+917447699197">Call Owner</a>
-            <a class="btn btn-outline" href="https://wa.me/917447699197" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-outline" href="https://wa.me/917447699197" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </div>
         </div>
       </div>
@@ -1501,7 +1532,7 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
         <h3>Our Office</h3>
         <p><strong>LLDC Property Solutions</strong></p>
         <p>4, Anant Manohar Apartment,<br>Paud Rd, Left Bhusari Colony,<br>Right Bhusari Colony, Kothrud,<br>Pune, Maharashtra 411038</p>
-        <a class="map-button" href="https://maps.app.goo.gl/X3Ku3aSke16KZWF88" target="_blank" rel="noopener"><span class="map-pin" aria-hidden="true">📍</span><span>Open Office Location in Google Maps</span></a>
+        <a class="map-button" href="https://maps.app.goo.gl/X3Ku3aSke16KZWF88" target="_blank" rel="noopener noreferrer"><span class="map-pin" aria-hidden="true">📍</span><span>Open Office Location in Google Maps</span></a>
       </div>
     </div>
   </div>
@@ -1515,220 +1546,22 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
   <div class="small">© <span id="year"></span> LLDC Property Solutions. All rights reserved.</div>
 </footer>
 
-<script>
-document.querySelectorAll('.tab').forEach(function(tab){
-  tab.addEventListener('click',function(){
-    var target=document.getElementById(tab.dataset.panel);
-    var isOpen=tab.classList.contains('active');
-    document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
-    document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
-    document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-expanded','false')});
-    var tabGroup=tab.closest('.tabs');
-    if(tabGroup) tabGroup.classList.remove('has-open-tab');
-    if(!isOpen && target){
-      tab.classList.add('active');
-      tab.setAttribute('aria-expanded','true');
-      target.classList.add('active');
-      if(tabGroup) tabGroup.classList.add('has-open-tab');
-    }
-  });
-});
-document.querySelectorAll('nav a').forEach(function(a){
-  a.addEventListener('click',function(){document.querySelector('nav').classList.remove('open')});
-});
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
-
-<script>
-document.querySelectorAll('.req-tab').forEach(function(tab){
-  tab.addEventListener('click',function(){
-    document.querySelectorAll('.req-tab').forEach(function(t){t.classList.remove('active')});
-    document.querySelectorAll('.req-panel').forEach(function(p){p.classList.remove('active')});
-    tab.classList.add('active');
-    var target=document.getElementById(tab.getAttribute('data-req'));
-    if(target) target.classList.add('active');
-  });
-});
-
-document.querySelectorAll('.req-form').forEach(function(form){
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var data=new FormData(form);
-    var lines=[];
-    data.forEach(function(value,key){
-      if(value) lines.push(key.charAt(0).toUpperCase()+key.slice(1)+': '+value);
-    });
-    var type=form.getAttribute('data-type') || 'Property Enquiry';
-    var message='Hello LLDC Property Solutions,%0A%0A*'+encodeURIComponent(type)+'*%0A%0A'+encodeURIComponent(lines.join('\n'));
-    window.open('https://wa.me/917879444555?text='+message,'_blank');
-  });
-});
-</script>
 
 
 
 
 
-<script>
-(function(){
-  const glow=document.createElement('div');
-  glow.className='glow-follow';
-  document.body.appendChild(glow);
-  let mx=window.innerWidth/2,my=window.innerHeight/2;
-  window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;glow.style.left=mx+'px';glow.style.top=my+'px';},{passive:true});
-
-  const revealItems=document.querySelectorAll('.reveal');
-  const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  },{threshold:.12});
-  revealItems.forEach(item=>observer.observe(item));
-
-  document.querySelectorAll('.cards,.updates-grid,.commercial-grid').forEach(group=>{
-    [...group.children].forEach((item,i)=>{
-      item.style.transitionDelay=(i*70)+'ms';
-      item.classList.add('reveal');
-      observer.observe(item);
-    });
-  });
-})();
-</script>
 
 
-<script>
-(function(){
-  var slider=document.getElementById('servicesSlider');
-  if(!slider) return;
 
-  var items=Array.prototype.slice.call(slider.querySelectorAll('.service-item'));
-  var tabs=Array.prototype.slice.call(slider.querySelectorAll('.service-tab'));
-  var current=0;
-  var timer=null;
-  var interval=4600;
-  var reduceMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function activate(index,moveFocus){
-    current=(index+items.length)%items.length;
-    items.forEach(function(item,i){
-      var active=i===current;
-      item.classList.toggle('active',active);
-      var tab=item.querySelector('.service-tab');
-      var panel=item.querySelector('.service-desc');
-      tab.setAttribute('aria-selected',active?'true':'false');
-      tab.setAttribute('aria-expanded',active?'true':'false');
-      tab.setAttribute('tabindex',active?'0':'-1');
-      panel.setAttribute('aria-hidden',active?'false':'true');
-    });
 
-    var progress=items[current].querySelector('.service-progress');
-    if(progress){
-      progress.style.animation='none';
-      void progress.offsetWidth;
-      progress.style.animation='';
-    }
-    if(moveFocus) tabs[current].focus();
-  }
 
-  function stop(){
-    if(timer){window.clearInterval(timer);timer=null}
-    slider.classList.add('is-paused');
-  }
 
-  function start(){
-    if(reduceMotion || document.hidden) return;
-    stop();
-    slider.classList.remove('is-paused');
-    timer=window.setInterval(function(){activate(current+1,false)},interval);
-  }
 
-  tabs.forEach(function(tab,index){
-    tab.addEventListener('click',function(){
-      activate(index,false);
-      start();
-    });
-    tab.addEventListener('keydown',function(event){
-      var next=null;
-      if(event.key==='ArrowDown' || event.key==='ArrowRight') next=index+1;
-      if(event.key==='ArrowUp' || event.key==='ArrowLeft') next=index-1;
-      if(event.key==='Home') next=0;
-      if(event.key==='End') next=items.length-1;
-      if(next!==null){
-        event.preventDefault();
-        activate(next,true);
-        stop();
-      }
-    });
-  });
 
-  slider.addEventListener('mouseenter',stop);
-  slider.addEventListener('mouseleave',start);
-  slider.addEventListener('focusin',stop);
-  slider.addEventListener('focusout',function(){
-    window.setTimeout(function(){
-      if(!slider.contains(document.activeElement)) start();
-    },0);
-  });
-  slider.addEventListener('touchstart',stop,{passive:true});
-  slider.addEventListener('touchend',function(){window.setTimeout(start,900)},{passive:true});
-  document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
-  window.addEventListener('pagehide',stop);
 
-  activate(0,false);
-  start();
-})();
-</script>
 
-<script>
-(function(){
-  var toggle=document.getElementById('legalContactToggle');
-  var options=document.getElementById('legalContactOptions');
-  if(toggle&&options){
-    toggle.addEventListener('click',function(){
-      var opening=toggle.getAttribute('aria-expanded')!=='true';
-      toggle.setAttribute('aria-expanded',opening?'true':'false');
-      options.hidden=!opening;
-      if(opening){
-        var firstLink=options.querySelector('a');
-        if(firstLink) window.setTimeout(function(){firstLink.focus()},50);
-      }
-    });
-  }
-})();
-</script>
-
-<script>
-(function(){
-  var services=[
-    {icon:'🏠',label:'Residential Sale',title:'Sell Your Property with Confidence',text:'From listing presentation and buyer coordination to negotiation support, we help position your property for a smooth and transparent sale.',link:'Explore Sale Properties',href:'#properties'},
-    {icon:'🔑',label:'Rental Services',title:'Find the Right Tenant or Home',text:'Residential rental assistance for families, working professionals, owners, and tenants—with clear communication from enquiry to possession.',link:'Explore Rental Properties',href:'#properties'},
-    {icon:'🏢',label:'Commercial Solutions',title:'Workspaces That Fit Your Business',text:'Office, retail, and commercial property support based on location, area, budget, amenities, and the operational needs of your business.',link:'Explore Commercial Properties',href:'#properties'},
-    {icon:'🎯',label:'Property Purchase',title:'Focused Property Search',text:'Share your exact requirement and LLDC will shortlist suitable options, coordinate visits, and support your purchase decision.',link:'Submit Purchase Requirement',href:'#requirements'},
-    {icon:'📄',label:'Documentation',title:'Agreements & Registration Support',text:'Coordinated assistance for leave and licence agreements, sale documents, lease deeds, registration steps, and related paperwork.',link:'Ask About Documentation',href:'#contact'},
-    {icon:'🤝',label:'Client Support',title:'One Point of Contact',text:'Responsive updates, property-specific coordination, visit scheduling, and continued assistance throughout your real-estate journey.',link:'Contact LLDC',href:'#contact'}
-  ];
-  var tabs=Array.prototype.slice.call(document.querySelectorAll('.our-service-tab'));
-  var content=document.getElementById('ourDisplayContent');
-  var count=document.getElementById('ourCurrentCount');
-  var progress=document.getElementById('ourProgressBar');
-  var stage=document.querySelector('.our-service-stage');
-  if(!stage || !content || !tabs.length) return;
-  var active=0,timer=null,reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function render(index){
-    active=index;var item=services[index];
-    tabs.forEach(function(tab,i){tab.classList.toggle('active',i===index);tab.setAttribute('aria-selected',i===index?'true':'false');tab.setAttribute('tabindex',i===index?'0':'-1')});
-    content.style.animation='none';void content.offsetWidth;
-    content.innerHTML='<div class="our-display-icon" aria-hidden="true">'+item.icon+'</div><div class="our-display-label">'+item.label+'</div><h3>'+item.title+'</h3><p>'+item.text+'</p><a class="our-display-link" href="'+item.href+'">'+item.link+' <span aria-hidden="true">→</span></a>';
-    content.style.animation='ourEnter .55s ease both';count.textContent=String(index+1).padStart(2,'0');progress.style.animation='none';void progress.offsetWidth;progress.style.animation='ourProgress 5s linear forwards';
-  }
-  function start(){window.clearInterval(timer);if(!reduceMotion) timer=window.setInterval(function(){render((active+1)%services.length)},5000)}
-  tabs.forEach(function(tab,index){tab.addEventListener('click',function(){render(index);start()});tab.addEventListener('keydown',function(event){var next=null;if(event.key==='ArrowDown'||event.key==='ArrowRight')next=index+1;if(event.key==='ArrowUp'||event.key==='ArrowLeft')next=index-1;if(event.key==='Home')next=0;if(event.key==='End')next=tabs.length-1;if(next!==null){event.preventDefault();next=(next+tabs.length)%tabs.length;render(next);tabs[next].focus();window.clearInterval(timer)}})});
-  stage.addEventListener('mouseenter',function(){window.clearInterval(timer)});stage.addEventListener('mouseleave',start);stage.addEventListener('focusin',function(){window.clearInterval(timer)});stage.addEventListener('focusout',start);
-  render(0);start();
-})();
-</script>
+<script src="assets/app.js" defer></script>
 </body>
 </html>
