@@ -722,31 +722,24 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
 
 <style>
 /* Mobile stability: preserve tap interactions without automatic page movement. */
-@media(max-width:700px){
-  html{scroll-behavior:auto!important}
-  body{overflow-x:hidden}
-  .reveal{transform:none!important;transition:opacity .28s ease!important}
-  .property-tab-callout .tap-icon,
-  .property-section .tabs:not(.has-open-tab) .tab,
-  .property-section .tab::after,
-  .hero .quick-card.services-slider:before,
-  .services-slider:after,
-  .service-live-dot,
-  .service-progress,
-  .our-legal-profile:after,
-  .our-live-chip:before,
-  .our-service-display:before,
-  .our-progress-bar,
-  .office-card .map-button:before,
-  .office-card .map-pin{animation:none!important}
+@media(max-width:850px){
+  html{scroll-behavior:auto!important;overflow-x:hidden}
+  body{overflow-x:hidden;background:#fff!important}
+  body:before{display:none!important}
+  header{background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .hero{min-height:auto!important;padding-top:64px!important;padding-bottom:58px!important}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1!important;transform:none!important}
   .property-section .tab:hover,
-  .property-section .tab.active{transform:none!important}
-  .service-tab,.service-icon,.service-desc{transition:none!important}
-  .service-item.active .service-icon{transform:none!important}
-  .our-display-content{animation:none!important}
-  .our-service-display{min-height:390px}
+  .property-section .tab.active,
+  .service-item.active .service-icon,
+  .btn:hover,
+  .update-card:hover,
+  .listing-card:hover{transform:none!important}
+  .services-slider,.our-service-stage{contain:layout paint}
+  .our-service-display{min-height:410px}
 }
-@media(max-width:420px){.our-service-display{min-height:420px}}
+@media(max-width:420px){.our-service-display{min-height:440px}}
 </style>
 </head>
 <body>
