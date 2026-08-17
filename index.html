@@ -721,6 +721,12 @@ footer{background:#102a43!important;color:#d9e2ec!important}.glow-follow{display
 </style>
 
 <style>
+/* Desktop stability: keep rotating service copy from changing page height. */
+@media(min-width:851px){
+  html{scrollbar-gutter:stable}
+  .our-service-display{height:449px;min-height:449px}
+}
+
 /* Mobile stability: preserve tap interactions without automatic page movement. */
 @media(max-width:850px){
   html{scroll-behavior:auto!important;overflow-x:hidden}
