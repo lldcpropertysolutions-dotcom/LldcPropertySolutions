@@ -117,7 +117,7 @@ document.querySelectorAll('.req-form').forEach(function(form){
 
   var copy={
     en:{
-      status:'Verified website help',quickLabel:'Quick help',placeholder:'Ask about rent, sale, legal help…',note:'Verified website information only. Property availability may change.',
+      status:'Verified website help',answerLabel:'Verified answer',quickLabel:'Quick help',placeholder:'Ask about rent, sale, legal help…',note:'Verified website information only. Property availability may change.',
       welcome:'Hello! I am the LLDC Smart Assistant. Ask me about available properties, rent, sale, commercial spaces, purchase requirements, legal support or our office location.',
       languageChanged:'English selected. How can I help you?',
       quick:[['properties','🏘️ Available properties'],['rent','🔑 Rent'],['sale','🏠 Sale'],['commercial','🏢 Commercial'],['legal','⚖️ Legal help'],['office','📍 Office']],
@@ -147,7 +147,7 @@ document.querySelectorAll('.req-form').forEach(function(form){
       actions:{viewRent:'View rental properties',viewSale:'View sale properties',viewCommercial:'View commercial spaces',sharePurchase:'Share purchase requirement',legal:'Open legal consultation',services:'View services',maps:'Open Google Maps',call:'Call LLDC',whatsapp:'Ask LLDC on WhatsApp'}
     },
     mr:{
-      status:'वेबसाइटवरील पडताळलेली मदत',quickLabel:'त्वरित मदत',placeholder:'भाडे, विक्री किंवा कायदेशीर मदत विचारा…',note:'फक्त पडताळलेली वेबसाइट माहिती. उपलब्धता बदलू शकते.',
+      status:'वेबसाइटवरील पडताळलेली मदत',answerLabel:'पडताळलेले उत्तर',quickLabel:'त्वरित मदत',placeholder:'भाडे, विक्री किंवा कायदेशीर मदत विचारा…',note:'फक्त पडताळलेली वेबसाइट माहिती. उपलब्धता बदलू शकते.',
       welcome:'नमस्कार! मी LLDC स्मार्ट सहाय्यक आहे. उपलब्ध मालमत्ता, भाडे, विक्री, व्यावसायिक जागा, खरेदीची गरज, कायदेशीर मदत किंवा कार्यालयाचा पत्ता याबद्दल विचारा.',
       languageChanged:'मराठी निवडली आहे. मी तुम्हाला कशी मदत करू?',
       quick:[['properties','🏘️ उपलब्ध मालमत्ता'],['rent','🔑 भाडे'],['sale','🏠 विक्री'],['commercial','🏢 व्यावसायिक'],['legal','⚖️ कायदेशीर मदत'],['office','📍 कार्यालय']],
@@ -177,7 +177,7 @@ document.querySelectorAll('.req-form').forEach(function(form){
       actions:{viewRent:'भाड्याच्या मालमत्ता पहा',viewSale:'विक्रीच्या मालमत्ता पहा',viewCommercial:'व्यावसायिक जागा पहा',sharePurchase:'खरेदीची गरज पाठवा',legal:'कायदेशीर सल्ला उघडा',services:'सेवा पहा',maps:'Google Maps उघडा',call:'LLDC ला कॉल करा',whatsapp:'LLDC ला WhatsApp करा'}
     },
     hi:{
-      status:'वेबसाइट की सत्यापित सहायता',quickLabel:'त्वरित सहायता',placeholder:'किराया, बिक्री या कानूनी सहायता पूछें…',note:'केवल सत्यापित वेबसाइट जानकारी। उपलब्धता बदल सकती है।',
+      status:'वेबसाइट की सत्यापित सहायता',answerLabel:'सत्यापित उत्तर',quickLabel:'त्वरित सहायता',placeholder:'किराया, बिक्री या कानूनी सहायता पूछें…',note:'केवल सत्यापित वेबसाइट जानकारी। उपलब्धता बदल सकती है।',
       welcome:'नमस्ते! मैं LLDC स्मार्ट असिस्टेंट हूँ। उपलब्ध संपत्ति, किराया, बिक्री, कमर्शियल जगह, खरीद आवश्यकता, कानूनी सहायता या कार्यालय के पते के बारे में पूछें।',
       languageChanged:'हिंदी चुनी गई है। मैं आपकी कैसे सहायता करूँ?',
       quick:[['properties','🏘️ उपलब्ध संपत्तियाँ'],['rent','🔑 किराया'],['sale','🏠 बिक्री'],['commercial','🏢 कमर्शियल'],['legal','⚖️ कानूनी सहायता'],['office','📍 कार्यालय']],
@@ -224,6 +224,7 @@ document.querySelectorAll('.req-form').forEach(function(form){
   function addMessage(text,who){
     var item=document.createElement('div');
     item.className='lldc-ai-message '+who;
+    if(who==='bot') item.setAttribute('data-answer-label',copy[currentLang].answerLabel);
     item.textContent=text;
     messages.appendChild(item);
     messages.scrollTop=messages.scrollHeight;
