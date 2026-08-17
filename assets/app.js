@@ -114,6 +114,8 @@ document.querySelectorAll('.req-form').forEach(function(form){
   var currentLang='en';
   var welcomed=false;
   var lastFocus=null;
+  var pendingScrollFrame=0;
+  var mobileAssistant=window.matchMedia && window.matchMedia('(max-width: 850px)');
 
   var copy={
     en:{
@@ -227,7 +229,16 @@ document.querySelectorAll('.req-form').forEach(function(form){
     if(who==='bot') item.setAttribute('data-answer-label',copy[currentLang].answerLabel);
     item.textContent=text;
     messages.appendChild(item);
-    messages.scrollTop=messages.scrollHeight;
+  }
+
+  function isMobileAssistant(){return Boolean(mobileAssistant && mobileAssistant.matches)}
+
+  function settleConversationScroll(){
+    if(pendingScrollFrame) window.cancelAnimationFrame(pendingScrollFrame);
+    pendingScrollFrame=window.requestAnimationFrame(function(){
+      pendingScrollFrame=0;
+      messages.scrollTop=Math.max(0,messages.scrollHeight-messages.clientHeight);
+    });
   }
 
   function createAction(spec,query){
@@ -271,7 +282,6 @@ document.querySelectorAll('.req-form').forEach(function(form){
     group.className='lldc-ai-actions';
     specs.forEach(function(spec){group.appendChild(createAction(spec,query))});
     messages.appendChild(group);
-    messages.scrollTop=messages.scrollHeight;
   }
 
   function openPropertyPanel(id){
@@ -331,6 +341,7 @@ document.querySelectorAll('.req-form').forEach(function(form){
     var response=copy[currentLang].responses[topic] || copy[currentLang].responses.fallback;
     addMessage(response,'bot');
     addActions(topic,query);
+    settleConversationScroll();
   }
 
   function submitQuestion(question,forcedTopic){
@@ -364,7 +375,7 @@ document.querySelectorAll('.req-form').forEach(function(form){
     input.lang=lang==='en'?'en':lang;
     note.textContent=copy[lang].note;
     renderQuickHelp();
-    if(announce) addMessage(copy[lang].languageChanged,'bot');
+    if(announce){addMessage(copy[lang].languageChanged,'bot');settleConversationScroll()}
   }
 
   function openAssistant(){
@@ -373,7 +384,8 @@ document.querySelectorAll('.req-form').forEach(function(form){
     launcher.setAttribute('aria-expanded','true');
     document.body.classList.add('lldc-ai-open');
     if(!welcomed){addMessage(copy[currentLang].welcome,'bot');welcomed=true}
-    window.setTimeout(function(){input.focus()},30);
+    settleConversationScroll();
+    if(!isMobileAssistant()) window.setTimeout(function(){input.focus()},30);
   }
 
   function closeAssistant(returnFocus){
@@ -385,8 +397,15 @@ document.querySelectorAll('.req-form').forEach(function(form){
 
   launcher.addEventListener('click',function(){panel.hidden?openAssistant():closeAssistant(true)});
   closeButton.addEventListener('click',function(){closeAssistant(true)});
-  langButtons.forEach(function(button){button.addEventListener('click',function(){setLanguage(button.dataset.lang,true);input.focus()})});
-  form.addEventListener('submit',function(event){event.preventDefault();var question=input.value;input.value='';submitQuestion(question);input.focus()});
+  langButtons.forEach(function(button){button.addEventListener('click',function(){setLanguage(button.dataset.lang,true);if(!isMobileAssistant()) input.focus()})});
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    var question=input.value;
+    input.value='';
+    if(isMobileAssistant()) input.blur();
+    submitQuestion(question);
+    if(!isMobileAssistant()) input.focus();
+  });
   document.addEventListener('keydown',function(event){if(event.key==='Escape' && !panel.hidden) closeAssistant(true)});
 
   setLanguage('en',false);
