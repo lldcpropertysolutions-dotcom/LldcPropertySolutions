@@ -209,6 +209,11 @@ section{padding:95px 0;position:relative}
 .contact-box,.owner-card,.office-card{border-radius:21px;padding:30px}
 .contact-box h3,.office-card h3,.owner-card h3{margin-top:0;color:var(--bamboo-dark)}
 .contact-link{display:block;padding:12px 0;border-bottom:1px solid rgba(94,68,50,.09);font-weight:750;color:var(--bamboo-dark)}
+.social-strip{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:22px;padding:24px 26px;border:1px solid #e1e7ed;border-radius:21px;background:#fff;box-shadow:0 10px 28px rgba(16,42,67,.10)}
+.social-intro{max-width:430px}.social-kicker{display:block;margin-bottom:4px;color:#b57d18;font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.social-intro h3{margin:0 0 3px;color:#102a43;font-size:1.25rem}.social-intro p{margin:0;color:#627d98;font-size:.9rem}
+.social-links{display:flex;gap:11px}.social-link{display:flex;align-items:center;gap:11px;min-width:220px;padding:11px 13px;border:1px solid #e1e7ed;border-radius:14px;background:#f8fafc;color:#102a43;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease}.social-link:hover{transform:translateY(-3px);border-color:#cbd5df;background:#fff;box-shadow:0 12px 26px rgba(16,42,67,.12)}.social-link:focus-visible{outline:3px solid rgba(213,163,61,.35);outline-offset:3px}
+.social-icon{display:grid;place-items:center;width:40px;height:40px;flex:none;border-radius:12px;background:#eaf0f5;color:#102a43;transition:background .22s ease,color .22s ease}.social-icon svg{width:23px;height:23px}.social-link.instagram:hover .social-icon{color:#fff;background:linear-gradient(135deg,#833ab4,#fd1d1d 58%,#fcb045)}.social-link.facebook:hover .social-icon{color:#fff;background:#1877f2}
+.social-copy{display:grid;line-height:1.2}.social-copy strong{color:#102a43;font-size:.93rem}.social-copy small{margin-top:4px;color:#627d98;font-size:.73rem}.social-arrow{margin-left:auto;color:#829ab1;font-size:1rem;transition:transform .22s ease}.social-link:hover .social-arrow{transform:translate(2px,-2px)}
 .owner-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
 .owner-card{display:flex;gap:20px}
 .owner-icon{width:60px;height:60px;min-width:60px;border-radius:50%;display:grid;place-items:center;background:rgba(243,200,207,.52);border:1px solid var(--line)}
@@ -251,6 +256,7 @@ footer strong{color:#fff}.small{font-size:12px;color:#d0c0b3}
 }
 @media(max-width:850px){
   .hero-grid,.about-grid,.contact-grid,.owner-grid,.property-card{grid-template-columns:1fr}
+  .social-strip{align-items:flex-start;flex-direction:column}.social-links{width:100%}.social-link{min-width:0;flex:1}
   .cards,.updates-grid{grid-template-columns:1fr 1fr}.property-img{min-height:270px}
   .listing-grid{grid-template-columns:1fr}
   .commercial-listings{grid-template-columns:1fr}
@@ -259,6 +265,7 @@ footer strong{color:#fff}.small{font-size:12px;color:#d0c0b3}
 }
 @media(max-width:560px){
   .cards,.commercial-grid,.updates-grid{grid-template-columns:1fr}
+  .social-strip{padding:21px 18px}.social-links{display:grid;grid-template-columns:1fr}.social-link{width:100%}
   .req-form{grid-template-columns:1fr}.req-form textarea,.submit-btn{grid-column:auto}
   section{padding:70px 0}.section-head h2,.section-heading h2{font-size:31px}
   .hero{padding:70px 0}.property-info{padding:25px}.specs{grid-template-columns:1fr}
@@ -1553,6 +1560,25 @@ a.lldc-ai-action{text-decoration:none}
         <h3>What are you looking for?</h3>
         <p>Tell us whether you want to <strong>sell, rent, purchase or find commercial property</strong>, and our team will connect with you.</p>
         <a class="btn btn-gold" href="https://wa.me/917879444555?text=Hello%20LLDC%20Property%20Solutions%2C%20I%20would%20like%20to%20discuss%20a%20property%20requirement.">Start on WhatsApp</a>
+      </div>
+    </div>
+    <div class="social-strip" aria-label="LLDC social media profiles">
+      <div class="social-intro">
+        <span class="social-kicker">Follow LLDC</span>
+        <h3>Connect with us on social media</h3>
+        <p>Follow our latest property listings, useful updates and market information.</p>
+      </div>
+      <div class="social-links">
+        <a class="social-link instagram" href="https://www.instagram.com/lldcpropertysolutions?igsh=MTFicHppMGlnMW9vaQ==" target="_blank" rel="noopener noreferrer" aria-label="Follow LLDC Property Solutions on Instagram">
+          <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.25"></circle><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"></circle></svg></span>
+          <span class="social-copy"><strong>Instagram</strong><small>@lldcpropertysolutions</small></span>
+          <span class="social-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="social-link facebook" href="https://www.facebook.com/share/1LPxPVZVsL/" target="_blank" rel="noopener noreferrer" aria-label="Follow LLDC Property Solutions on Facebook">
+          <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M13.7 22v-9h3l.5-3h-3.5V8.1c0-.9.3-1.6 1.7-1.6h1.9V3.8c-.3 0-1.5-.1-2.8-.1-2.8 0-4.7 1.7-4.7 4.8V10H7v3h2.8v9h3.9z"></path></svg></span>
+          <span class="social-copy"><strong>Facebook</strong><small>LLDC Property Solutions</small></span>
+          <span class="social-arrow" aria-hidden="true">↗</span>
+        </a>
       </div>
     </div>
   </div>
