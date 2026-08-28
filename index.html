@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src https://www.instagram.com https://www.facebook.com; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://*.cdninstagram.com https://*.fbcdn.net; font-src 'self' data:; connect-src 'self'; media-src 'self' https://*.cdninstagram.com https://*.fbcdn.net; worker-src 'none'; form-action 'self'; upgrade-insecure-requests">
 <meta name="description" content="LLDC Property Solutions - Residential and commercial property solutions for sale, rent, purchase and leasing in Pune.">
 <title>LLDC Property Solutions | Your Property, Our Priority</title>
-<link rel="stylesheet" href="assets/social-feed.css?v=20260828">
+<link rel="stylesheet" href="assets/social-feed.css?v=20260828-easy">
 
 
 
@@ -1054,8 +1054,6 @@ a.lldc-ai-action{text-decoration:none}
       <button class="tab" type="button" data-panel="commercial" aria-expanded="false" aria-controls="commercial"><span class="tab-icon" aria-hidden="true">🏢</span>Commercial</button>
     </div>
     <p class="property-hint">Select a category to view properties. Click the selected category again to close it.</p>
-    <p class="social-feed-status" id="socialFeedStatus" hidden aria-live="polite"></p>
-
     <div class="panel" id="sale">
       <div class="listing-grid">
         <article class="listing-card">
@@ -1455,6 +1453,31 @@ a.lldc-ai-action{text-decoration:none}
         </article>
       </div>
     </div>
+
+    <section class="social-page-feed" aria-labelledby="socialFeedTitle">
+      <div class="social-page-copy">
+        <span class="social-live-badge"><span aria-hidden="true"></span> LIVE SOCIAL FEED</span>
+        <h3 id="socialFeedTitle">Latest LLDC Property Updates</h3>
+        <p>New Facebook posts, property advertisements and videos appear here automatically. Instagram posts will also appear when they are shared to the connected Facebook Page.</p>
+        <div class="social-page-actions">
+          <a class="btn social-facebook-btn" href="https://www.facebook.com/people/Lldc-Property/61591186529616/" target="_blank" rel="noopener noreferrer">Open Facebook</a>
+          <a class="btn social-instagram-btn" href="https://www.instagram.com/lldcpropertysolutions?igsh=MTFicHppMGlnMW9vaQ==" target="_blank" rel="noopener noreferrer">Open Instagram</a>
+        </div>
+        <p class="social-page-note">Public posts only. Facebook controls which timeline items are displayed in the embedded feed.</p>
+      </div>
+      <div class="social-page-frame">
+        <iframe
+          title="Latest posts and videos from LLDC Property Solutions on Facebook"
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FLldc-Property%2F61591186529616%2F&amp;tabs=timeline&amp;width=500&amp;height=700&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false"
+          width="500"
+          height="700"
+          loading="lazy"
+          scrolling="no"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </section>
   </div>
 </section>
 
@@ -1736,6 +1759,5 @@ a.lldc-ai-action{text-decoration:none}
 
 
 <script src="assets/app.js?v=20260817-stable-1" defer></script>
-<script src="assets/social-feed.js?v=20260828" defer></script>
 </body>
 </html>

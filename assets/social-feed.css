@@ -1,36 +1,42 @@
-/* LLDC automatic Instagram/Facebook property feed */
-.social-feed-status{
-  width:max-content;max-width:100%;margin:0 auto 24px;padding:8px 13px;
-  border:1px solid #d8e4ec;border-radius:999px;background:#f4f8fb;
-  color:#526d82;font-size:.76rem;font-weight:800;letter-spacing:.02em
+/* No-login LLDC Facebook Page feed */
+.social-page-feed{
+  display:grid;grid-template-columns:minmax(240px,.85fr) minmax(320px,1.15fr);
+  align-items:center;gap:38px;margin:58px auto 8px;padding:36px;
+  border:1px solid #dbe4eb;border-radius:28px;background:#fff;
+  box-shadow:0 18px 52px rgba(16,42,67,.11);overflow:hidden
 }
-.social-property-card{border-color:#d6e0e8!important}
-.social-property-card::before{
-  content:"SOCIAL UPDATE";position:absolute;top:13px;right:13px;z-index:4;
-  padding:6px 9px;border-radius:999px;background:rgba(11,31,53,.9);color:#fff;
-  font-size:.62rem;font-weight:900;letter-spacing:.1em;pointer-events:none
+.social-page-copy{max-width:440px}
+.social-live-badge{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:15px;padding:7px 11px;
+  border:1px solid #dbe4eb;border-radius:999px;background:#f5f8fa;color:#526d82;
+  font-size:.7rem;font-weight:900;letter-spacing:.09em
 }
-.social-media-frame{
-  position:relative;width:100%;height:600px;overflow:hidden;background:#f4f6f8
+.social-live-badge span{
+  width:8px;height:8px;border-radius:50%;background:#30a46c;
+  box-shadow:0 0 0 5px rgba(48,164,108,.12)
 }
-.social-media-frame iframe{
-  display:block;width:100%;height:100%;border:0;background:#fff
+.social-page-copy h3{margin:0 0 12px;color:#102a43;font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.15}
+.social-page-copy>p{margin:0;color:#627d98;line-height:1.75}
+.social-page-actions{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 14px}
+.social-page-actions .btn{padding:12px 17px}
+.social-facebook-btn{border-color:#1877f2!important;background:#1877f2!important;color:#fff!important}
+.social-instagram-btn{border-color:#d62976!important;background:#fff!important;color:#b91c61!important}
+.social-page-copy .social-page-note{color:#829ab1;font-size:.76rem;line-height:1.55}
+.social-page-frame{
+  width:100%;height:700px;overflow:hidden;border:1px solid #dbe4eb;
+  border-radius:20px;background:#f4f6f8;contain:layout paint
 }
-.social-media-fallback{
-  display:grid;place-items:center;width:100%;height:100%;padding:28px;text-align:center;
-  color:#102a43;background:linear-gradient(135deg,#edf3f7,#fff)
-}
-.social-media-fallback span{display:block;margin-bottom:8px;font-size:2rem}
-.social-caption{
-  display:-webkit-box;overflow:hidden;margin:12px 0 0;color:#526d82;line-height:1.65;
-  -webkit-box-orient:vertical;-webkit-line-clamp:6
-}
-.social-source-note{margin:9px 0 0;color:#829ab1;font-size:.76rem}
-.social-property-card .listing-actions .social-view-btn{background:#102a43;color:#fff;border-color:#102a43}
+.social-page-frame iframe{display:block;width:100%;height:700px;border:0;background:#fff}
 
-@media(max-width:900px){.social-media-frame{height:560px}}
-@media(max-width:560px){
-  .social-media-frame{height:520px}
-  .social-property-card::before{top:9px;right:9px}
+@media(max-width:820px){
+  .social-page-feed{grid-template-columns:1fr;padding:26px;gap:26px}
+  .social-page-copy{max-width:none}
+  .social-page-frame{max-width:500px;margin:auto}
 }
-@media(prefers-reduced-motion:reduce){.social-property-card *{scroll-behavior:auto!important}}
+@media(max-width:560px){
+  .social-page-feed{margin-top:40px;padding:18px;border-radius:20px}
+  .social-page-frame,.social-page-frame iframe{height:620px}
+  .social-page-actions{display:grid;grid-template-columns:1fr}
+  .social-page-actions .btn{text-align:center}
+}
+@media(prefers-reduced-motion:reduce){.social-live-badge span{box-shadow:none}}
