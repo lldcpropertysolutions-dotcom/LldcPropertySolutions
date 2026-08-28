@@ -1,0 +1,36 @@
+/* LLDC automatic Instagram/Facebook property feed */
+.social-feed-status{
+  width:max-content;max-width:100%;margin:0 auto 24px;padding:8px 13px;
+  border:1px solid #d8e4ec;border-radius:999px;background:#f4f8fb;
+  color:#526d82;font-size:.76rem;font-weight:800;letter-spacing:.02em
+}
+.social-property-card{border-color:#d6e0e8!important}
+.social-property-card::before{
+  content:"SOCIAL UPDATE";position:absolute;top:13px;right:13px;z-index:4;
+  padding:6px 9px;border-radius:999px;background:rgba(11,31,53,.9);color:#fff;
+  font-size:.62rem;font-weight:900;letter-spacing:.1em;pointer-events:none
+}
+.social-media-frame{
+  position:relative;width:100%;height:600px;overflow:hidden;background:#f4f6f8
+}
+.social-media-frame iframe{
+  display:block;width:100%;height:100%;border:0;background:#fff
+}
+.social-media-fallback{
+  display:grid;place-items:center;width:100%;height:100%;padding:28px;text-align:center;
+  color:#102a43;background:linear-gradient(135deg,#edf3f7,#fff)
+}
+.social-media-fallback span{display:block;margin-bottom:8px;font-size:2rem}
+.social-caption{
+  display:-webkit-box;overflow:hidden;margin:12px 0 0;color:#526d82;line-height:1.65;
+  -webkit-box-orient:vertical;-webkit-line-clamp:6
+}
+.social-source-note{margin:9px 0 0;color:#829ab1;font-size:.76rem}
+.social-property-card .listing-actions .social-view-btn{background:#102a43;color:#fff;border-color:#102a43}
+
+@media(max-width:900px){.social-media-frame{height:560px}}
+@media(max-width:560px){
+  .social-media-frame{height:520px}
+  .social-property-card::before{top:9px;right:9px}
+}
+@media(prefers-reduced-motion:reduce){.social-property-card *{scroll-behavior:auto!important}}

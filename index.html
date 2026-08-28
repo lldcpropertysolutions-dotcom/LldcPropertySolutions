@@ -8,9 +8,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com; font-src 'self' data:; connect-src 'none'; media-src 'none'; worker-src 'none'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src https://www.instagram.com https://www.facebook.com; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://*.cdninstagram.com https://*.fbcdn.net; font-src 'self' data:; connect-src 'self'; media-src 'self' https://*.cdninstagram.com https://*.fbcdn.net; worker-src 'none'; form-action 'self'; upgrade-insecure-requests">
 <meta name="description" content="LLDC Property Solutions - Residential and commercial property solutions for sale, rent, purchase and leasing in Pune.">
 <title>LLDC Property Solutions | Your Property, Our Priority</title>
+<link rel="stylesheet" href="assets/social-feed.css?v=20260828">
 
 
 
@@ -1053,6 +1054,7 @@ a.lldc-ai-action{text-decoration:none}
       <button class="tab" type="button" data-panel="commercial" aria-expanded="false" aria-controls="commercial"><span class="tab-icon" aria-hidden="true">🏢</span>Commercial</button>
     </div>
     <p class="property-hint">Select a category to view properties. Click the selected category again to close it.</p>
+    <p class="social-feed-status" id="socialFeedStatus" hidden aria-live="polite"></p>
 
     <div class="panel" id="sale">
       <div class="listing-grid">
@@ -1734,5 +1736,6 @@ a.lldc-ai-action{text-decoration:none}
 
 
 <script src="assets/app.js?v=20260817-stable-1" defer></script>
+<script src="assets/social-feed.js?v=20260828" defer></script>
 </body>
 </html>
