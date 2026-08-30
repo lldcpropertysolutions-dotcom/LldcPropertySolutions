@@ -17,13 +17,12 @@
 document.querySelectorAll('.tab').forEach(function(tab){
   tab.addEventListener('click',function(){
     var target=document.getElementById(tab.dataset.panel);
-    var isOpen=tab.classList.contains('active');
     document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
     document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
     document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-expanded','false')});
     var tabGroup=tab.closest('.tabs');
     if(tabGroup) tabGroup.classList.remove('has-open-tab');
-    if(!isOpen && target){
+    if(target){
       tab.classList.add('active');
       tab.setAttribute('aria-expanded','true');
       target.classList.add('active');
@@ -82,7 +81,7 @@ document.querySelectorAll('.req-form').forEach(function(form){
         observer.unobserve(entry.target);
       }
     });
-  },{threshold:.12});
+  },{threshold:.01,rootMargin:'0px 0px -24px 0px'});
   revealItems.forEach(item=>observer.observe(item));
 
   document.querySelectorAll('.cards,.updates-grid,.commercial-grid').forEach(group=>{
@@ -92,6 +91,15 @@ document.querySelectorAll('.req-form').forEach(function(form){
       observer.observe(item);
     });
   });
+
+  // A tall section can never reach a large intersection ratio on short screens.
+  // This fallback guarantees that content cannot remain invisible.
+  window.setTimeout(()=>{
+    document.querySelectorAll('.reveal').forEach(item=>{
+      item.classList.add('visible');
+      observer.unobserve(item);
+    });
+  },1200);
 })();
 })();
 
