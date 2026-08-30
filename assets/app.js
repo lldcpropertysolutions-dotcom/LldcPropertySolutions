@@ -4,12 +4,23 @@
   var menu=document.getElementById('menuToggle');
   var nav=document.querySelector('header nav');
   if(!menu||!nav) return;
-  menu.addEventListener('click',function(){
-    var opening=!nav.classList.contains('open');
+  function setMenuOpen(opening){
     nav.classList.toggle('open',opening);
+    menu.classList.toggle('active',opening);
     menu.setAttribute('aria-expanded',opening?'true':'false');
+    menu.setAttribute('aria-label',opening?'Close menu':'Open menu');
+  }
+  menu.addEventListener('click',function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    setMenuOpen(!nav.classList.contains('open'));
   });
-  nav.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')})});
+  nav.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){setMenuOpen(false)})});
+  document.addEventListener('click',function(event){
+    if(nav.classList.contains('open')&&!nav.contains(event.target)) setMenuOpen(false);
+  });
+  document.addEventListener('keydown',function(event){if(event.key==='Escape') setMenuOpen(false)});
+  window.addEventListener('resize',function(){if(window.innerWidth>850) setMenuOpen(false)});
 })();
 
 // Original page module 1
