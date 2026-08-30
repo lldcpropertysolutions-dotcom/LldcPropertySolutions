@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="description" content="Report website trial feedback and technical issues to LLDC Property Solutions.">
+  <title>Website Trial Feedback | LLDC Property Solutions</title>
+  <link rel="stylesheet" href="assets/feedback.css?v=20260830-1">
+</head>
+<body>
+  <header class="feedback-header">
+    <a class="brand" href="index.html" aria-label="Return to LLDC Property Solutions website">
+      <span class="brand-mark" aria-hidden="true">⌂</span>
+      <span><strong>LLDC</strong><small>PROPERTY SOLUTIONS</small></span>
+    </a>
+    <a class="back-link" href="index.html" target="_blank" rel="noopener noreferrer">Open website to test ↗</a>
+  </header>
+
+  <main>
+    <section class="feedback-intro" aria-labelledby="feedbackTitle">
+      <span class="eyebrow">CLIENT TRIAL • WEBSITE REVIEW</span>
+      <h1 id="feedbackTitle">Help us improve the LLDC website.</h1>
+      <p>Found something blank, shaking, incorrect or difficult to use? Send us a quick report so our team can check and fix it.</p>
+      <div class="steps" aria-label="How to report an issue">
+        <span><b>1</b> Test the website</span>
+        <span><b>2</b> Describe the issue</span>
+        <span><b>3</b> Send on WhatsApp</span>
+      </div>
+    </section>
+
+    <section class="feedback-card" aria-labelledby="formTitle">
+      <div class="card-heading">
+        <div>
+          <span class="card-kicker">ISSUE REPORT</span>
+          <h2 id="formTitle">What problem did you notice?</h2>
+        </div>
+        <span class="secure-note">No login required</span>
+      </div>
+
+      <form id="websiteFeedbackForm">
+        <div class="field-grid two-columns">
+          <label>
+            <span>Your name <em>*</em></span>
+            <input type="text" name="testerName" maxlength="80" autocomplete="name" placeholder="Enter your name" required>
+          </label>
+          <label>
+            <span>Device used <em>*</em></span>
+            <select name="device" required>
+              <option value="" selected disabled>Select device</option>
+              <option>Desktop / Laptop</option>
+              <option>Android phone</option>
+              <option>iPhone / iPad</option>
+              <option>Other device</option>
+            </select>
+          </label>
+          <label>
+            <span>Browser <em>*</em></span>
+            <select name="browser" required>
+              <option value="" selected disabled>Select browser</option>
+              <option>Google Chrome</option>
+              <option>Microsoft Edge</option>
+              <option>Safari</option>
+              <option>Firefox</option>
+              <option>Other / Not sure</option>
+            </select>
+          </label>
+          <label>
+            <span>Website section <em>*</em></span>
+            <select name="section" required>
+              <option value="" selected disabled>Select section</option>
+              <option>Home</option>
+              <option>About</option>
+              <option>Services</option>
+              <option>Properties</option>
+              <option>Requirements form</option>
+              <option>News / Updates</option>
+              <option>Property Visuals</option>
+              <option>Contact</option>
+              <option>LLDC AI Assistant</option>
+              <option>Whole website</option>
+              <option>Other / Not sure</option>
+            </select>
+          </label>
+          <label>
+            <span>Issue type <em>*</em></span>
+            <select name="issueType" required>
+              <option value="" selected disabled>Select issue</option>
+              <option>Blank or missing content</option>
+              <option>Button or link not working</option>
+              <option>Website shaking / moving</option>
+              <option>Layout or text problem</option>
+              <option>Wrong property information</option>
+              <option>Image or video problem</option>
+              <option>Slow loading</option>
+              <option>Form or WhatsApp problem</option>
+              <option>Other issue</option>
+            </select>
+          </label>
+          <label>
+            <span>Priority</span>
+            <select name="priority">
+              <option>Normal</option>
+              <option>High — important feature affected</option>
+              <option>Critical — website cannot be used</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="full-field">
+          <span>Describe what happened <em>*</em></span>
+          <textarea name="details" maxlength="700" rows="5" placeholder="Example: When I clicked For Rent, the property cards disappeared and the section became blank." required></textarea>
+          <small>Please mention what you clicked before the issue appeared.</small>
+        </label>
+
+        <label class="full-field">
+          <span>Page link where you noticed it</span>
+          <input type="url" name="pageUrl" maxlength="300" inputmode="url" placeholder="Paste the page link, if available">
+        </label>
+
+        <div class="attachment-reminder">
+          <span aria-hidden="true">📎</span>
+          <div><strong>Have a screenshot or screen recording?</strong><p>After WhatsApp opens, please attach it with the prepared report.</p></div>
+        </div>
+
+        <label class="consent-row">
+          <input type="checkbox" name="confirmed" required>
+          <span>I have checked the issue once again and the details above are correct.</span>
+        </label>
+
+        <button class="send-button" type="submit"><span aria-hidden="true">✓</span> Send Issue Report on WhatsApp</button>
+        <p class="form-note">Your report is sent only when you confirm it inside WhatsApp.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <strong>LLDC Property Solutions</strong>
+    <span>Your Property, Our Priority</span>
+  </footer>
+
+  <script src="assets/feedback.js?v=20260830-1" defer></script>
+</body>
+</html>
