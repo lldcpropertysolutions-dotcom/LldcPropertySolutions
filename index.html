@@ -840,8 +840,14 @@ nav a:hover,nav a:focus-visible{
 }
 nav a:hover:after,nav a:focus-visible:after{opacity:1;transform:scaleX(1)}
 @media(max-width:850px){
+  header{z-index:1500!important}
+  .nav{position:relative}
   .logo{font-size:20px;text-shadow:0 1px 0 #fff,0 2px 0 rgba(16,42,67,.14),0 4px 8px rgba(16,42,67,.12)}
   .logo:after{bottom:-5px;height:2px}
+  .menu{position:relative;z-index:2;cursor:pointer;touch-action:manipulation;background:#fff!important}
+  .menu.active{color:#b57d18!important;border-color:#d5a33d;box-shadow:0 6px 16px rgba(16,42,67,.12)}
+  header nav{top:100%;z-index:1;width:100%;max-height:calc(100vh - 76px);overflow-y:auto;background:#fff!important;box-shadow:0 16px 28px rgba(16,42,67,.14)}
+  header nav.open{display:flex!important;visibility:visible;opacity:1;pointer-events:auto}
   nav a:hover,nav a:focus-visible{transform:none}
 }
 @media(prefers-reduced-motion:reduce){.logo,nav a,nav a:after{transition:none!important}}
@@ -1798,6 +1804,6 @@ nav a:hover:after,nav a:focus-visible:after{opacity:1;transform:scaleX(1)}
 
 
 
-<script src="assets/app.js?v=20260830-visible-1" defer></script>
+<script src="assets/app.js?v=20260830-mobile-menu-1" defer></script>
 </body>
 </html>
