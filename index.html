@@ -805,6 +805,47 @@ a.lldc-ai-action{text-decoration:none}
 @media(max-height:520px){.lldc-ai-panel{grid-template-rows:auto auto minmax(130px,1fr) auto auto auto}.lldc-ai-message.bot{min-height:88px}.lldc-ai-quick-wrap{padding-top:7px;padding-bottom:5px}}
 @media(prefers-reduced-motion:reduce){.lldc-ai *{animation:none!important;transition:none!important}}
 </style>
+<style>
+/* Sober 3D header treatment: visual depth without layout movement. */
+header{
+  box-shadow:0 1px 0 rgba(255,255,255,.9),0 8px 24px rgba(16,42,67,.07)!important
+}
+.logo{
+  position:relative;display:inline-block;isolation:isolate;
+  text-shadow:0 1px 0 #fff,0 2px 0 rgba(16,42,67,.17),0 5px 10px rgba(16,42,67,.16);
+  transform:translateZ(0);transition:filter .25s ease!important
+}
+.logo span{
+  text-shadow:0 1px 0 #fff7dc,0 2px 0 rgba(160,108,8,.24),0 5px 10px rgba(181,125,24,.18)
+}
+.logo:after{
+  content:"";position:absolute;z-index:-1;left:1px;right:0;bottom:-7px;height:3px;border-radius:99px;
+  background:linear-gradient(90deg,#102a43 0 23%,#d5a33d 23% 100%);
+  box-shadow:0 2px 4px rgba(16,42,67,.18);opacity:.78
+}
+.logo:hover,.logo:focus-visible{filter:brightness(1.07);outline:none}
+nav{perspective:700px}
+nav a{
+  position:relative;text-shadow:0 1px 0 #fff,0 2px 2px rgba(16,42,67,.14);
+  transform:translateZ(0);transition:color .25s ease,transform .25s ease,text-shadow .25s ease!important
+}
+nav a:after{
+  content:"";position:absolute;left:8%;right:8%;bottom:-7px;height:2px;border-radius:3px;
+  background:linear-gradient(90deg,#d5a33d,#f0cf79);box-shadow:0 2px 4px rgba(181,125,24,.2);
+  opacity:0;transform:scaleX(.35);transition:opacity .25s ease,transform .25s ease
+}
+nav a:hover,nav a:focus-visible{
+  color:#b57d18!important;transform:translateY(-2px) rotateX(5deg);
+  text-shadow:0 1px 0 #fff,0 3px 3px rgba(16,42,67,.18);outline:none
+}
+nav a:hover:after,nav a:focus-visible:after{opacity:1;transform:scaleX(1)}
+@media(max-width:850px){
+  .logo{font-size:20px;text-shadow:0 1px 0 #fff,0 2px 0 rgba(16,42,67,.14),0 4px 8px rgba(16,42,67,.12)}
+  .logo:after{bottom:-5px;height:2px}
+  nav a:hover,nav a:focus-visible{transform:none}
+}
+@media(prefers-reduced-motion:reduce){.logo,nav a,nav a:after{transition:none!important}}
+</style>
 </head>
 <body>
 
