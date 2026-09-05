@@ -267,7 +267,7 @@ document.querySelectorAll('.req-form').forEach(function(form){
     if(type==='maps' || type==='call' || type==='whatsapp'){
       control=document.createElement('a');
       if(type==='maps'){
-        control.href='https://maps.app.goo.gl/X3Ku3aSke16KZWF88';
+        control.href='https://maps.app.goo.gl/Y2D2Xf4jkyczm3Tz7';
         control.target='_blank';
         control.rel='noopener noreferrer';
       }else if(type==='call'){
